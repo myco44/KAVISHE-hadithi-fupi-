@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <title>Hadithi Zako</title>
+  <style>
+  	  <link rel="icon"
+      https://myco44.github.io/Kavi-icon/	
+    body {
+      font-family: "Arial", sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    input, button {
+      padding: 60px;
+      margin: 15px;
+      font-size: 26px;
+    }
+    .story-box {
+      border: 5px solid #cccccc;
+      border-radius: 11px;
+      padding: 250px;
+      background: #fff;
+      margin-top: 20px;
+      height: 360px;
+      overflow-y: auto;
+      font-size: 30px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .buttons {
+      margin-top: 10px;
+      text-align: center;
+    }
+    button {
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>📖 KAVISHE hadithi fupi</h1>
+  <div>
+    <label>Ingiza jina lako:</label><br>
+    <input type="text" id="jina" placeholder="Andika jina hapa...">
+  </div>
+    <button onclick="andikaHadithi('fupi')">Hadithi fupi</button>
+  </div>
+
+  <div class="story-box" id="hadithi"></div>
+
+  <script>
+    const hadithiBox = document.getElementById("hadithi");
+
+    const fupiHadithi = [
+
+`Hadithi ya {jina} – Bahari ya Pangani 🌊
+Pwani ya Pangani, {jina} alimsogelea Zuri:
+1️⃣ {jina}: "Zuri… upepo huu unanikumbusha sauti ya tabasamu lako tamu." 🌬️
+2️⃣ {jina}: "Kila wimbi linapiga, ni kama pumzi yako inavyonipa nguvu." 💛
+3️⃣ {jina}: "Nitakuwa mwanga wako kila alfajiri, na mwezi wako kila usiku." 🌙
+4️⃣ {jina}: "Kila hatua yetu ni methali ya upendo, kila pumzi ni wimbo wa siri." 🎶
+5️⃣ {jina}: "Basi tuendele pamoja, mpaka nyota zote zikubali kuwa wewe ni siri yangu ya milele." 🌟
+Zuri akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Mlima wa Kilimanjaro 🏔️
+Kilimanjaro, {jina} alimsogelea Amina:
+1️⃣ {jina}: "Amina… kila mlima unayochomoza unanikumbusha jinsi moyo wangu unavyopiga taratibu." 💓
+2️⃣ {jina}: "Nitakupatia kila pumzi yangu, jasho langu, na ndoto zangu zote." 🌹
+3️⃣ {jina}: "Kila neno lako linapiga kama wimbi kwenye bahari ya moyo wangu." 🌊
+4️⃣ {jina}: "Na kila pumzi yako ni methali ya furaha isiyo na kipimo." ✨
+5️⃣ {jina}: "Basi tuendele pamoja, hatua kwa hatua, mpaka dunia yote itutambue." 🌌
+Amina akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Kijiji cha Same 🌾
+Same, {jina} alimsogelea Fara:
+1️⃣ {jina}: "Fara… upepo huu unavyokimbia unanikumbusha moyo wako unaopiga haraka." 💨
+2️⃣ {jina}: "Ni pumzi yako inayonipatia nguvu ya kuendelea." 💛
+3️⃣ {jina}: "Kila hatua yetu ni siri ya furaha yetu isiyoisha." 🌿
+4️⃣ {jina}: "Kila neno lako ni methali ya upendo isiyo na mwisho." ✨
+5️⃣ {jina}: "Basi tuendele pamoja, mpaka anga lituburudishe." 🌌
+Fara akakubaliana kwa tabasamu la aibu.  
+MWISHO`,
+
+`Hadithi ya {jina} – Kiboriloni 🌹
+Kiboriloni, {jina} alimsogelea Laila:
+1️⃣ {jina}: "Laila… nyota zote zinafurahia uzuri wako." 🌙✨
+2️⃣ {jina}: "Nitakupatia siku zangu zote, jasho langu, na ndoto zangu zote." 🌹
+3️⃣ {jina}: "Kila pumzi yako ni methali ya furaha isiyoisha." 🌊
+4️⃣ {jina}: "Na kila tabasamu lako linang’ara ndani ya moyo wangu." ✨
+5️⃣ {jina}: "Basi tuseme tuendelee pamoja, mpaka anga lituburudishe." 🌌
+Laila akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Mengwe 🌾
+Kijiji cha Mengwe, {jina} alimsogelea Neema:
+1️⃣ {jina}: "Neema… kila hatua yetu inasikika kama methali ya furaha." 🌿
+2️⃣ {jina}: "Kila pumzi yako inanikumbusha kuwa upendo haukome." 💛
+3️⃣ {jina}: "Nitakuwa mwanga wako wa kila alfajiri na usiku." 🌙
+4️⃣ {jina}: "Kila neno lako ni wimbo wa siri usioisha." 🎶
+5️⃣ {jina}: "Basi tuendele pamoja, mpaka anga zote zikubali siri yetu." 🌌
+Neema akakubali kwa tabasamu la aibu.  
+MWISHO`,
+
+`Hadithi ya {jina} – Seem 🌟
+Seem, {jina} alimsogelea Taraji:
+1️⃣ {jina}: "Taraji… kila mwezi ninaona mwanga wako ndani ya pumzi yangu." 🌙
+2️⃣ {jina}: "Ni siri ya anga, ila usikie ndani ya moyo wako." 💖
+3️⃣ {jina}: "Kila neno lako linanipatia methali ya furaha." ✨
+4️⃣ {jina}: "Kila tabasamu lako ni wimbo usioisha." 🎶
+5️⃣ {jina}: "Basi tuendele pamoja, mpaka anga lituburudishe." 🌌
+Taraji akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+`Hadithi ya {jina} – Usiku wa Mkinga 🌹
+
+Kijiji cha Mkinga, {jina} alimsogelea Lulu kwa hatua za kifahari, akizunguka maneno yenye tamu:
+1️⃣ {jina}: "Lulu… kila mwezi unapochomoza, ni kama mwanga wako unanipa pumzi ya amani." 🌙  
+   Lulu akacheka aibu, akashikilia mkono wake.
+
+2️⃣ {jina}: "Nitakupatia furaha zangu zote, tabasamu langu, na ndoto zangu zote. Sio ahadi ya dunia, bali ahadi ya moyo wangu." 💖  
+   Lulu akatabasamu, akasema: "Na mimi… nakuamini."
+
+3️⃣ {jina}: "Kila neno lako linapiga kama wimbi kwenye bahari ya moyo wangu." 🌊  
+   Lulu akashikilia shingo yake taratibu, akakubaliana.
+
+4️⃣ {jina}: "Na kila pumzi yako ni methali ya furaha isiyoisha." ✨  
+   Lulu akashikilia mkono wake kwa aibu na kupiga kidole taratibu.
+
+5️⃣ {jina}: "Basi tuendele pamoja, hatua kwa hatua, mpaka dunia yote itakubali siri yetu." 🌌  
+   Lulu akavuta pumzi ndefu: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Kisiwa cha Pangani 🌴
+
+Pwani ya Pangani, {jina} alimsogelea Zara kando ya mchanga wa dhahabu:
+1️⃣ {jina}: "Zara… upepo huu unakumbusha harufu yako, tamu na yenye furaha isiyoisha." 🌬️  
+   Zara akacheka: "Hapana… siwezi kuelewa."
+
+2️⃣ {jina}: "Ni kwa sababu kila wimbi linapiga, ni kama pumzi yako inanikumbusha kuwa uko karibu." 💛  
+   Zara akashikilia mkono wake taratibu.
+
+3️⃣ {jina}: "Nitakuwa mwanga wako kila alfajiri, na mwezi wako kila usiku." 🌙  
+   Zara akakubali kwa tabasamu la aibu.
+
+4️⃣ {jina}: "Kila hatua yetu ni methali ya upendo, kila pumzi ni wimbo wa siri." 🎶  
+   Zara akashikilia shingo yake kwa aibu.
+
+5️⃣ {jina}: "Basi tuendele pamoja, mpaka nyota zote zikubali kuwa wewe ni siri yangu ya milele." 🌟  
+   Zara akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Mto wa Kibaha 🌊
+
+Kibaha, {jina} alimsogelea Nia taratibu, akizungumza maneno yenye utamu mkubwa:
+1️⃣ {jina}: "Nia… unajua kwanini maji ya mto hayawezi kuficha furaha yangu kwako?"  
+   Nia akacheka: "Hapana… kwanini?"
+
+2️⃣ {jina}: "Ni kwa sababu kila tone linang’ara kama pumzi yako inavyonipa nguvu." 🌿  
+   Nia akashikilia mkono wake taratibu.
+
+3️⃣ {jina}: "Nitakuwa pumzi yako ya kila siku, mwanga wako wa kila usiku." 🌙  
+   Nia akakubaliana kwa aibu.
+
+4️⃣ {jina}: "Na kila tabasamu lako ni methali ya furaha isiyoisha." ✨  
+   Nia akashikilia shingo yake kwa aibu.
+
+5️⃣ {jina}: "Basi tuendele pamoja, hatua kwa hatua, mpaka anga lote litutambue." 🌌  
+   Nia akakubali kwa hisia zote: "Sawa… nitakuwa nawe."  
+MWISHO`,
+
+`Hadithi ya {jina} – Mlima wa Same ⛰️
+
+Kijiji cha Same, {jina} alimsogelea Tatu kando ya mlima, kwa maneno yenye utamu:
+1️⃣ {jina}: "Tatu… kila mlima unayochomoza unanikumbusha jinsi moyo wangu unavyopiga taratibu."  
+   Tatu akacheka kwa aibu, akashikilia mkono wake.
+
+2️⃣ {jina}: "Nitakupatia kila pumzi yangu, jasho langu, na ndoto zangu zote." 💖  
+   Tatu akatabasamu: "Na mimi… nakuamini."
+
+3️⃣ {jina}: "Kila neno lako linapiga kama wimbi kwenye bahari ya moyo wangu." 🌊  
+   Tatu akashikilia shingo yake taratibu.
+
+4️⃣ {jina}: "Na kila pumzi yako ni methali ya furaha isiyo na kipimo." ✨  
+   Tatu akashikilia mkono wake kwa aibu na kupiga kidole taratibu.
+
+5️⃣ {jina}: "Basi tuendele pamoja, hatua kwa hatua, mpaka dunia yote itutambue." 🌌  
+   Tatu akavuta pumzi ndefu: "Sawa… nitakuwa nawe."  
+MWISHO`,
+`Hadithi ya {jina} – Asha wa Kiboriloni 🌹
+
+Usiku wa mwezi mpevu pale Kiboriloni, upepo mwanana ukipita taratibu, {jina} alimsogelea Asha taratibu kana kwamba anapiga hatua kwenye sakafu ya moyo wake.
+
+{jina}: "Asha… unajua kwanini nyota ziko nyingi usiku huu?"
+Asha: "Mbona sijui, labda ni kawaida ya anga."
+{jina}: "Hapana, ni kwa sababu kila nyota inataka kuiga mwanga wa macho yako. Ila bado zote zimezidiwa." 🌙✨
+
+Asha akacheka kwa aibu, akageuza uso.
+{jina}: "Nina uhakika kabisa, hata mwezi wenyewe ukinitaka nitakataa, maana moyo wangu umeshachukuliwa na wewe." 💘
+
+Asha akatikisa kichwa, akijifanya mkali.
+{jina}: "Nitakupatia siku zangu zote, jasho langu lote, na ndoto zangu zote. Sitakuahidi dunia nzima, bali nitakuahidi kwamba pale nitakapoanguka, wewe utakuwa sababu ya kuinuka." 🌹
+
+Asha akavuta pumzi ndefu, akashusha taratibu…
+Asha: "Basi {jina}… nakubali."
+
+Na hapo taratibu, mwezi ukashuhudia mwanzo wa mapenzi ya Kiboriloni. 🌙
+MWISHO`,
+`Hadithi ya {jina} – Kutongoza kwenye Basi 🚌  
+
+Siku moja {jina} alipanda basi la Moshi kuelekea Dar es Salaam. Kwenye siti ya mbele alikaa msichana mrembo mwenye tabasamu la kuvutia.  
+👉 {jina}: “Safari ni ndefu, lakini macho yako yamenifanya nihisi kama dakika chache.”  
+👉 Msichana: “Wewe unajua kuongea sana, au hii ni tabia ya safari?”  
+👉 {jina}: “Hii ni tabia ya moyo. Safari ya kweli siyo kilomita, bali ni safari ya kuufikia moyo wako.”  
+👉 Msichana: “Na ukifika utabaki au utasafiri tena?”  
+👉 {jina}: “Nikifika nitashuka, lakini si kwenye basi – nitashuka kwenye roho yako, hapo ndipo kituo cha mwisho.”  
+Msichana alitabasamu na kukubali namba yake ya simu. 💌  
+MWISHO`,
+
+`Hadithi ya {jina} – Kutongoza Wakati wa Mvua 🌧️  
+
+Kiboriloni kulinyesha mvua kubwa, kila mtu alikimbia kujificha. {jina} alimwona msichana amesimama bila mwavuli.  
+👉 {jina}: “Mvua inanyesha juu yetu, lakini ninachoona ni malaika akibubujikwa na baraka.”  
+👉 Msichana: “Hivi unamaanisha mimi?”  
+👉 {jina}: “Ndiyo. Mvua hii imeniletea zawadi. Na kama ningekuwa mwavuli, ningekufunika milele.”  
+👉 Msichana: “Lakini maji haya yatakauka kesho, vipi kuhusu maneno yako?”  
+👉 {jina}: “Maneno yangu hayakauki, yanamea. Kesho, badala ya matone ya mvua, nitakuletea maua.”  
+Msichana akacheka na akamshika mkono, wakakimbia pamoja. 🌹  
+MWISHO`,
+
+`Hadithi ya {jina} – Kutongoza Kwenye Sherehe 🎶  
+
+Sherehe ya kijiji cha Mengwe ilikuwa na muziki na vicheko. {jina} alimwona msichana akicheza kwa ustadi mkubwa.  
+👉 {jina}: “Miguuni mwako kuna muziki, lakini moyoni mwako kuna wimbo ambao mimi pekee ndiye naweza kuusikia.”  
+👉 Msichana: “Na kama hautaimba huo wimbo je?”  
+👉 {jina}: “Basi moyo wangu utabaki kimya, kwa sababu wewe ndiye unaoufanya upige.”  
+👉 Msichana: “Na ukishaimba utaondoka?”  
+👉 {jina}: “Hapana, nitabaki, nikicheza na wewe mpaka muziki wa dunia uishe.”  
+Msichana akajisikia tofauti, akasema:  
+“Leo nimechezewa na kila mtu, lakini maneno yako yamenichezesha moyoni. Nimekubali.” 💃❤️  
+MWISHO`,
+`Hadithi ya {jina} – Kutongoza Sokoni 🥭  
+
+Siku moja {jina} aliona msichana mzuri sokoni Kiboriloni akiuza maembe.  
+👉 {jina}: “Dada, maembe yako yana harufu nzuri, lakini harufu yako imezidi hata matunda yote hapa.”  
+👉 Msichana: “Wewe bwana, unanitania eeh?”  
+👉 {jina}: “Hapana, nakuambia ukweli. Mimi nilikuja sokoni kutafuta maembe, kumbe nimepata moyo wangu.”  
+👉 Msichana: “Na una uhakika huo moyo utaweza kutunzwa vizuri?”  
+👉 {jina}: “Moyo wangu una nafasi moja tu, na ninyi ndiyo funguo yake.”  
+Baada ya maneno haya, msichana akacheka sana, akamwambia:  
+“Basi njoo kesho tena, si kwa maembe, ila kwa ajili yangu.” ❤️  
+MWISHO`,
+
+`Hadithi ya {jina} – Kutongoza Shuleni 📚  
+
+Kijiji cha Mengwe kulikuwa na uwanja wa shule ambapo {jina} alimwona msichana akipiga picha na marafiki.  
+👉 {jina}: “Unapopiga picha, kamera inaona uso, lakini macho yangu yanaona roho yako.”  
+👉 Msichana: “Unajua kuongea maneno matamu sana wewe.”  
+👉 {jina}: “Si maneno tu, ni hisia. Ukiwa nami, hutakosa mtu wa kukushika mkono hata giza linapotanda.”  
+👉 Msichana: “Na ukiacha kesho je?”  
+👉 {jina}: “Kesho, kesho kutwa na miaka yote, nitakuwa mshairi wako na rafiki wa mwisho.”  
+Mwanamke akatazama macho yake na kutabasamu:  
+“Kwa mara ya kwanza, maneno yamenigusa zaidi ya zawadi. Nimekubali.” 💕  
+MWISHO`,
+
+`Hadithi ya {jina} – Kutongoza Barabarani 🚶  
+
+Njiani kuelekea Marangu, {jina} alikutana na msichana akibeba ndoo ya maji.  
+👉 {jina}: “Samahani dada, maji yako ni mazito, lakini mzigo niliyo nayo moyoni ni mzito zaidi.”  
+👉 Msichana: “Mizigo ya moyo tena? Hiyo ni ipi sasa?”  
+👉 {jina}: “Ni wewe. Kila nikikuona, moyo wangu unanilemea kwa hisia.”  
+👉 Msichana: “Na utanifanyia nini nikikukubali?”  
+👉 {jina}: “Nitakunywesha mapenzi yangu hadi utasahau kiu ya dunia.”  
+Msichana akashusha ndoo chini, akasema huku akitabasamu:  
+“Basi ngoja unibebe mimi kwanza, kisha nitakubeba moyoni.” 😍  
+MWISHO`,
+`Hadithi ya {jina} – Duka la Kiboriloni 🏘️  
+
+Kiboriloni, mtaa mdogo Moshi, kulikuwa na duka lililojulikana kuuza simu ghali.  
+👉 Hatua ya 1: {jina} alijifanya fundi wa umeme, akachunguza waya za duka na kujua kamera zinajitegemea kwenye solar ndogo.  
+👉 Hatua ya 2: Alisubiri siku yenye mvua kubwa, betri za solar zikashindwa kushika chaji.  
+👉 Hatua ya 3: Wakati umeme ulipokatika, akaingia kwa mwanga wa tochi ndogo isiyoonekana kamera.  
+👉 Hatua ya 4: Akachukua simu chache za bei kubwa na kuondoka taratibu.  
+
+Asubuhi mwenye duka alikuta mlango upo salama, kamera hazijarekodi kitu.  
+**{jina} akawa gumzo Kiboriloni.**  
+MWISHO`,
+
+`Hadithi ya {jina} – Shule ya Mengwe 📚  
+
+Kijiji cha Mengwe kilikuwa na shule yenye kompyuta mpya zilizotolewa msaada.  
+👉 Hatua ya 1: {jina} alijifanya mlinzi wa usiku, akavaa sare sawa na walinzi halisi.  
+👉 Hatua ya 2: Alijua walinzi hubadilisha zamu saa 6 usiku, na muda wa sekunde 30 walipokuwa wakisalimiana ulikuwa na pengo.  
+👉 Hatua ya 3: Katika sekunde hizo, aliingia store na kuweka boksi bandia lenye mawe badala ya laptopi.  
+👉 Hatua ya 4: Alipeleka kompyuta chache hadi kwa rafiki yake kijijini akazificha.  
+
+Kesho yake walimu waliona boksi zipo lakini hazina mashine.  
+**{jina} akawa hadithi ya Mengwe.**  
+MWISHO`,
+
+`Hadithi ya {jina} – Soko la Marangu 🍌  
+
+Marangu, mji wa migomba, kulikuwa na soko lenye mabenki madogo ya akiba.  
+👉 Hatua ya 1: {jina} alijifanya mkulima wa ndizi, akapeleka mikungu mizito sokoni.  
+👉 Hatua ya 2: Katikati ya mikungu alificha boksi dogo la chuma lenye vifaa vya kufungua kufuli.  
+👉 Hatua ya 3: Usiku, wakati wafanyabiashara walilala, alirudi sokoni na kuingia ndani ya moja ya vibanda vya akiba.  
+👉 Hatua ya 4: Kwa kutumia vifaa vyake, alifungua sanduku la fedha na kuchukua noti chache tu zisizoweza kugundulika haraka.  
+
+Asubuhi walishtuka sokoni, fedha hazionekani lakini hakukuwa na dalili ya kuvunjwa.  
+**{jina} akaitwa “Mjanja wa Marangu.”**  
+MWISHO`,
+
+`Hadithi ya {jina} – Bandari ya Pangani 🌊  
+
+Kijiji cha Pangani, mkoa wa Tanga, kilikuwa na bandari ndogo iliyohifadhi shehena za samaki na bidhaa.  
+👉 Hatua ya 1: {jina} alijifanya mchuuzi wa dagaa, akawa anaingia bandari kila siku bila kutiliwa shaka.  
+👉 Hatua ya 2: Aligundua ghala moja lilihifadhi boksi la fedha za kampuni kubwa ya uvuvi.  
+👉 Hatua ya 3: Aliweka “padlock” bandia kwenye mlango wa ghala wakati wa mchana, ikawa sawa kabisa na asili.  
+👉 Hatua ya 4: Usiku akaja na ufunguo wa kufanana, akafungua ghala bandia na kuchukua boksi dogo la fedha.  
+👉 Hatua ya 5: Akaweka tena kufuli halisi ili kesho asihisike chochote.  
+
+Watu wa Pangani walipoamka, kila kitu kilionekana sawa. Ila pesa hazikuwepo.  
+**{jina} akaitwa “Kivuli cha Pangani.”**  
+MWISHO`,
+`Hadithi ya {jina} – Benki ya Kilimanjaro 🏔️  
+
+Moshi mjini kulikuwa na benki iliyojulikana kwa ulinzi mkali.  
+👉 Hatua ya 1: {jina} alijifanya mchuuzi wa kahawa, akapata nafasi ya kuingia mara kwa mara.  
+👉 Hatua ya 2: Akaweka kifaa kidogo cha kurekodi sauti kwenye meza ya mlinzi mkuu.  
+👉 Hatua ya 3: Usiku akatumia data hiyo kujua nenosiri la kufungua geti.  
+👉 Hatua ya 4: Alitumia laptop yake kuunganisha CCTV kwenye matangazo ya mpira, hivyo walinzi waliona mechi badala ya ndani ya benki.  
+👉 Hatua ya 5: Akaingia vault, akachukua pochi chache za almasi na dola, siyo vyote, ili isiwe dhahiri.  
+
+Asubuhi walinzi walishangaa CCTV ilikuwa imeonyesha mpira usiku kucha.  
+**{jina} akaitwa “Kivuli cha Kilimanjaro.”**  
+MWISHO`,
+
+`Hadithi ya {jina} – Soko la Arusha 🌍  
+
+Soko Kuu la Arusha lilikuwa na maduka yenye fedha taslimu nyingi.  
+👉 Hatua ya 1: {jina} alijifanya mchoraji wa kioo, akachora bango kubwa la biashara lililozuia kamera moja.  
+👉 Hatua ya 2: Akaweka kifaa cha kugonga “sim card blocker” karibu na duka la fedha, ili mpesa zisifanye kazi dakika 5.  
+👉 Hatua ya 3: Wakati umati ulipojaa wakilalamika huduma imekufa, akaingia dukani akachukua boksi moja dogo la fedha.  
+👉 Hatua ya 4: Aliweka boksi lingine sawa lenye karatasi ili lisigundulike haraka.  
+
+Asubuhi mmiliki alipoanza kuhesabu, karatasi zilijitokeza badala ya pesa.  
+**{jina} alijulikana kama “Mchora wa Arusha.”**  
+MWISHO`,
+
+`Hadithi ya {jina} – Madini ya Manyara 💎  
+
+Migodi ya Manyara ilikuwa inalinda madini kwa ulinzi mkali wa walinzi na mbwa.  
+👉 Hatua ya 1: {jina} alipeleka chakula kwa walinzi, akakiweka “spray ya usingizi” ndani ya nyama ya mbwa.  
+👉 Hatua ya 2: Usiku mbwa walilala fofofo, na walinzi wakajisikia wazito baada ya kula chakula.  
+👉 Hatua ya 3: Akatumia drone ndogo kupiga picha ya barabara ya nyuma, akajua sehemu salama ya kuingia.  
+👉 Hatua ya 4: Akaingia mgodini, akachukua madini machache ya thamani kubwa.  
+👉 Hatua ya 5: Aliyaweka kwenye bomba la maji la plastiki lililoonekana la kawaida na kuyapeleka nje.  
+
+Kesho yake walinzi walikuta mgodi upo salama, lakini madini yenye thamani kubwa hayapo.  
+**{jina} aliitwa “Kivuli cha Manyara.”**  
+MWISHO`,
+
+`Hadithi ya {jina} – Bandari ya Tanga ⚓  
+
+Bandari ya Tanga ilikuwa ikipokea makontena ya bidhaa kutoka nje.  
+👉 Hatua ya 1: {jina} alijifanya dereva wa malori, akapata ID feki ya bandari.  
+👉 Hatua ya 2: Akafuatilia ratiba ya magari 20 yaliyokuwa yanabeba kontena za sukari.  
+👉 Hatua ya 3: Usiku mmoja, akabadilisha namba za kontena halisi lililokuwa na pesa za kampuni kubwa.  
+👉 Hatua ya 4: Lori lake liliungana na msururu wa malori mengine, halikutiliwa shaka.  
+👉 Hatua ya 5: Alipeleka mzigo mkoani Morogoro, akauficha kwa siku tatu kabla ya kusambaza fedha.  
+
+Asubuhi, bandari ilihesabu magari yote na kila kitu kiliendana – ila kontena moja lilikuwa limejaa mifuko tupu.  
+**{jina} akaitwa “Kivuli cha Tanga.”**  
+MWISHO`,
+`Hadithi ya {jina} – Mtego wa Usiku  
+
+Kulikuwa na wimbi kubwa la wizi mjini, watu waliporwa kwa ujanja kila mara, lakini hakuna aliyewahi kumshika mkono. Polisi walishindwa, walinzi walichoka, lakini jina lililokuwa likinong’onwa kila kona ni moja tu: **{jina} Muuzi Mjanja**.  
+
+🌒 Usiku mmoja, ghala kubwa la dhahabu liliwekwa chini ya ulinzi wa saa 24. Kamera kila kona, walinzi 10 wakiwa na mbwa, na taa za usiku zikiwa kama mchana.  
+Changamoto ilikuwa moja: “Hapa hakuna mtu anayeweza kuingia bila kushikiliwa.”  
+
+👉 Hatua ya kwanza: {jina} alijifanya ni fundi wa umeme aliyekuja kufanya ukaguzi. Aliingia mchana kwa mikono mitupu, akachunguza nyaya zote kwa macho makini, akajua ni kamera gani zina nguvu zaidi na ni zipi zinazotegemea betri. Akatoka bila kuacha doa.  
+
+👉 Hatua ya pili: Alirudi usiku akiwa amebeba kifaa kidogo kilichotengeneza mwanga wa infrared. Hiki kifaa kilichanganya kamera, zikadhani ni taa za kawaida. Walinzi hawakujua, kamera zilikuwa kipofu.  
+
+👉 Hatua ya tatu: Mbwa walikuwa kikwazo kikubwa. Lakini {jina} alikuwa tayari. Alitupa mbali kipande cha nyama chenye harufu kali, mbwa wote wakakimbilia upande huo. Walinzi wakaanza kupiga kelele: “Wameona kitu kulee!” kumbe walikuwa wanapigwa chenga.  
+
+👉 Hatua ya nne: {jina} akaingia taratibu, akatumia staha ya kivuli cha lori lililosimama nje. Akaingia ndani ya ghala, akachukua mfuko mmoja tu wa dhahabu badala ya yote – ili asionekane haraka.  
+
+👉 Hatua ya tano: Kabla hajatoka, akachukua pakiti ndogo ya karatasi, akaandika:  
+*“Asanteni kwa kuimarisha ulinzi, ila kumbukeni – akili inashinda nguvu.”*  
+
+🌄 Asubuhi ilipofika, walinzi walikimbia kuona dhahabu haipo, lakini walishangaa kuona karatasi tu ikiwacheka.  
+
+Kijiji kizima kilibaki kushangaa: “Ni nani huyu anayeiba bila kuguswa, anayetoka kama upepo?”  
+Wengine walimwita jambazi, wengine walimwita shujaa – lakini wote walikubali jambo moja:  
+**{jina} hakuwa mtu wa kawaida, alikuwa mjanja kupita wote.**  
+
+MWISHO`,
+    
+`Hadithi ya {jina} Mjanja – Methali ya Mwendo
+
+Methali: "Haraka haraka haina baraka."  
+Swali: Kijana {jina} aliona watu wakikimbia kwa haraka kukusanya mazao ya shamba. Kila mzigo ulikuwa na kilo 12. Wakikimbia haraka, kila mzigo 1/3 ulikuwa unapotea. Kwa mzigo 9, ni kilo ngapi zilibaki salama?  
+
+{jina} alihesabu:  
+"Mzigo mmoja: 12 x (1 - 1/3) = 8 kilo. Mzigo 9: 8 x 9 = 72 kilo zilibaki."  
+
+Wote walishangaa jinsi {jina} alivyoweza kuunganisha methali na hesabu.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Methali ya Hekima
+
+Methali: "Akili ni mali, wacha kisasi."  
+Swali: {jina} aliona majambazi 5 wakijaribu kushinda bonyeza la kifaa cha shamba. Kila mmoja alikuwa na suluhisho tofauti. Anatumia akili yake kuona mchanganyiko gani unaowezesha kufunga kifaa haraka. Ni mbinu gani {jina} alitumia?  
+
+{jina} alitumia:  
+"Kwa kuangalia kila suluhisho, nikaona kila jibu la majambazi lina sehemu halisi. Nikachanganya sehemu hizo kwa mpangilio sahihi, kifaa kilifungwa bila wao kujua."  
+
+Walishangaa mbinu za akili za {jina}.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Methali ya Shamba
+
+Methali: "Maji yasiyokwisha, hayapotei."  
+Swali: {jina} aliona mito mitatu ikiyeyuka na kuleta maji shambani. Kila mito ina kiwango cha lita 50 kwa siku, lakini maji 1/5 hupotea kwa uvukizi. Ni lita ngapi zinabaki baada ya siku 4?  
+
+{jina} alihesabu:  
+"Lita za kila siku: 50 x (1 - 1/5) = 40 lita. Mito 3: 40 x 3 = 120 lita kwa siku. Baada ya siku 4: 120 x 4 = 480 lita."  
+
+Wote walishangaa jinsi {jina} alivyofafanua methali na hesabu.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Methali ya Ujasiri
+
+Methali: "Asiyefanya uchungu, hatavuna tamu."  
+Swali: {jina} alijua kuwa mchungwa shambani unahitaji hatua 3 kwa kila mti. Ikiwa kuna miti 7, ni hatua ngapi zote zinahitajika kufanikisha kazi?  
+
+{jina} alihesabu:  
+"Hatua kwa kila mti: 3. Miti 7: 3 x 7 = 21 hatua."  
+
+Wote walishangaa jinsi {jina} alivyofanya methali iwe **changamoto halisi ya hesabu na akili**.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Methali ya Akili
+
+Methali: "Kilio cha pwani hakimsikii mvuvi wa ndani."  
+Swali: {jina} aliona wavuvi 6 wakiwa na samaki 18, lakini 1/3 ya samaki walikosa kufikishwa sokoni. Ni samaki ngapi walisalia?  
+
+{jina} alihesabu:  
+"Samaki waliopotea: 18 x 1/3 = 6. Samaki waliobaki: 18 - 6 = 12."  
+
+Wote walijifunza methali na jinsi ya kutumia akili.  
+MWISHO`,
+`Hadithi ya {jina} Mjanja – Fumbo la Methali
+
+Mwalimu alisoma mstari wa andiko: “Methali 21:5 – Mikakati ya mpangilio huleta ufanisi.”  
+Kisha aliuliza swali gumu:  
+“Kuna wakulima 7, kila mmoja anapanda miche 15, na miche 5 inakufa bila sababu. Ni miche ngapi itakua baada ya mwezi 3, ikiwa kila wiki miche inakua kwa 10%?”  
+
+{jina} alichora ramani ya kila wiki, akatumia formula ya kimaendeleo, na akaamua:  
+“Miche iliyokua itakuwa 177, baada ya kuzingatia vifo vya miche.”  
+
+Mwalimu akashangaa na kusema:  
+“Hii ni akili ya hali ya juu na uchambuzi wa kweli!”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Fumbo la Zaburi
+
+Mstari wa andiko: “Zaburi 90:12 – Fundisha siku zetu kuhesabu busara.”  
+Swali: “Ikiwa mtu anapiga hatua 3 kila saa na ana 24 saa za kuishi, lakini kila hatua 5 anapoteza hatua 1 kwa upotevu, ni hatua ngapi atapiga kwa siku?”  
+
+{jina} alihesabu kwa makini:  
+“Katika saa 24, atapiga hatua 72, lakini kutokana na upotevu atabaki na 57 hatua halisi.”  
+
+Wote walishangaa jinsi {jina} alivyoweza **kuunganisha hesabu na maana ya andiko**.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Fumbo la Danieli
+
+Mstari wa andiko: “Danieli 2:20 – Hekima na uelewa ni zawadi kutoka Mungu.”  
+Swali: “Mfalme aliota ndoto yenye namba 7 za hatari. Ikiwa kila namba inawakilisha siku ya maandalizi 4, na Danieli anatakiwa kupata jumla ya siku zote, ni siku ngapi Danieli atapaswa kupanga?”  
+
+{jina} akatengeneza meza ya ulinganifu:  
+“7 x 4 = 28 siku za maandalizi.”  
+
+Mwalimu akashangaa kwa uchambuzi huu wa kina.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Fumbo la Paulo
+
+Mstari wa andiko: “Wafilipi 4:13 – Ninaweza yote kwa msaada wa Kristo.”  
+Swali: “Kila siku Paulo anasoma kurasa 12 za maandiko, lakini kila 3 anapoteza 1 kwa kukosa kumbuka. Baada ya wiki 2, ni kurasa ngapi alizosoma kweli?”  
+
+{jina} alihesabu:  
+“Wiki 2 = siku 14. Kila siku anasoma 12 kurasa, lakini anapoteza 1 kila 3: 12 - 4 = 8 kurasa halisi kwa siku. 14 x 8 = 112 kurasa halisi.”  
+
+Wote walishangaa mbinu ya {jina} ya **hesabu na uelewa wa andiko**.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Fumbo la Upendo
+
+Mstari wa andiko: “Mathayo 22:39 – Mpende jirani yako kama wewe mwenyewe.”  
+Swali: “Ikiwa kuna watu 10 na kila mmoja anapenda jirani 3 tu kwa usawa, ni watu wangapi wanapendwa zaidi ya mara 2?”  
+
+{jina} alichora grafu na kuhesabu:  
+“Watu 4 wanapendwa zaidi ya mara 2, kwa kulinganisha uhusiano wote.”  
+
+Mwalimu akashangaa jinsi {jina} **alivyoweza kuunganisha hesabu na upendo wa Biblia**.  
+MWISHO`,
+`Hadithi ya {jina} Mjanja – Mwongozo wa Biblia
+
+Mwalimu aliuliza:  
+“Ni nani aliyepanda kwenye meli na wanyama?”  
+
+{jina} akafikiria kwa makini na kusema:  
+“Ni Nuhu. Alipandisha wanyama wawili wawili kwenye meli ili kuokoa aina zote kutokana na mafuriko.”  
+
+Mwalimu akamwuliza:  
+“Na maana yake ni nini?”  
+
+{jina} akafafanua:  
+“Inaonyesha uangalifu na uwajibikaji. Nuhu alijua hatari ya mafuriko na kuchukua hatua za kuwalinda wote. Kwa maisha yetu, tunapaswa kuwa makini na kuchukua hatua kabla hatujafika kwenye tatizo.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Tafsiri ya Methali
+
+Mwalimu aliuliza:  
+“Neno hili la Methali 6:6 linasema nini: ‘Enyi mchanga, nenda kwa nyumbu wa shamba, angalia mtazamo wake na ujifunze busara’?”  
+
+{jina} akasema:  
+“Lina maana kwamba tunaweza kujifunza kutoka kwa wanyama na mazingira yao. Nyumbu hufanya kazi kwa bidii bila malalamiko, na tunapojifunza tabia hizi, tunakuwa watu wa busara.”  
+
+Mwalimu akashangaa kwa ufahamu wake mkubwa.  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Njia ya Upendo
+
+Swali:  
+“Ni amri gani kuu katika Biblia kuhusu upendo?”  
+
+{jina} akajibu:  
+“Yesu alisema: ‘Mpende Mungu kwa moyo wako wote na jirani yako kama wewe mwenyewe.’”  
+
+Mwalimu aliuliza:  
+“Na maana yake ni nini kwa maisha yetu?”  
+
+{jina} akafafanua:  
+“Inatufundisha kuwa heshima na huruma ni msingi wa uhusiano mzuri. Kila kitendo chetu kinapaswa kuwa na upendo wa kweli, sio hila.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mchakato wa Tafsiri
+
+Swali:  
+“Kwa nini Yusuf alijumlishwa kwenye Misri na ndugu zake walipokasirika?”  
+
+{jina} akasema:  
+“Kwa sababu Mungu alikuwa na mpango wa kuzidisha familia yake. Yusuf alijua kuwa changamoto na dhuluma ni sehemu ya mpango mkubwa wa maisha.”  
+
+Mwalimu aliuliza:  
+“Na tunajifunza nini?”  
+
+{jina} akafafanua:  
+“Tunapaswa kuwa na imani hata tunapokabili dhuluma au changamoto. Kila kisa kina funzo.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Ujasiri wa Danieli
+
+Mwalimu aliuliza:  
+“Nini kilimsaidia Danieli kuishi kati ya simba?”  
+
+{jina} akasema:  
+“Ujasiri wa Danieli na imani yake kwa Mungu. Hakuwa na hofu, akaendelea kusali na kutegemea mpango wa Mungu.”  
+
+Mwalimu akashangaa na kumuuliza:  
+“Na maana yake kwa sisi?”  
+
+{jina} akafafanua:  
+“Inatufundisha kuwa imani na ujasiri ni silaha zenye nguvu. Tukitegemea maadili na haki, tunaweza kuokoa maisha yetu hata kwenye hali ngumu.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mwaliko wa Kiroho
+
+Swali:  
+“Ni mfano gani Yesu alitumia kuonyesha upendo wa kweli?”  
+
+{jina} akajibu:  
+“Alitumia mfano wa Mwana Mpotevu, aliyeacha kuishi maovu na kurudi kwa baba yake. Baba alimkumbatia kwa furaha na msamaha.”  
+
+Mwalimu akamuuliza:  
+“Na maana yake ni nini?”  
+
+{jina} akafafanua:  
+“Upendo wa kweli ni msamaha. Hatuwezi kudumisha uhusiano bila kuonyesha huruma na msamaha, hata kwa wale waliotukosea.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Busara ya Methali
+
+Swali:  
+“Methali 3:5-6 inasema ‘Tegemea Bwana kwa moyo wako wote, usitegemee akili zako pekee.’ Tafsiri ni ipi?”  
+
+{jina} akasema:  
+“Inamaanisha hatuwezi kuishi maisha yetu tu kwa akili zetu. Tunapaswa kutegemea mwongozo wa Mungu, kwani unatuongoza kwa njia sahihi na salama.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Maisha ya Paulo
+
+Swali:  
+“Kwa nini Paulo aliendelea kuhubiri licha ya mateso?”  
+
+{jina} akafafanua:  
+“Alijua kuwa ujumbe wa kweli ni muhimu kuliko usalama wake. Aliamua kutoa maisha yake kwa maneno ya kweli, na kuwatia moyo wengine.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Kazi ya Mizizi
+
+Swali:  
+“Kwa nini Abrahamu alihama nchi yake?”  
+
+{jina} akasema:  
+“Alienda kwa amri ya Mungu, kuacha urithi wake wa zamani. Hii inatuonyesha kuwa kuamini mpango wa Mungu kunahitaji ujasiri na kutenda.”  
+MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mifano ya Uongozi
+
+Swali:  
+“Ni mifano gani ya uongozi tunayoona Biblia?”  
+
+{jina} akafafanua:  
+“Mifano ni kama Mose alivyoiongoza Israeli kutoka Misri, na Daudi alivyokuwa mfalme wa haki. Kila kiongozi aliangalia ustawi wa wengine, akatumia hekima na busara.”  
+MWISHO`,
+`Hadithi ya {jina} Mjanja – Hesabu ya Kitengo
+
+Mwalimu aliuliza:  
+“Kila darasa lina wanafunzi 25, na kila mwanafunzi anasoma masaa 2 ya hesabu kila siku. Ikiwa shule ina madarasa 8, jumla ya masaa ya hesabu kwa wiki 5 ni mangapi?”  
+
+{jina} akahesabu hatua kwa hatua:  
+1. Masaa kwa darasa kwa siku = 25 × 2 = 50  
+2. Shule yote kwa siku = 50 × 8 = 400  
+3. Kwa wiki 5 (5 siku kwa wiki) = 400 × 5 = 2,000  
+
+**Jibu:** 2,000 masaa. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mantiki ya Geni
+
+Mwalimu aliuliza:  
+“Kundi la wachezaji 6 lina meza 6 tofauti. Kila mmoja lazima awe na nafasi tofauti. Ni idadi gani ya mipangilio yote inayowezekana?”  
+
+{jina} akatumia mantiki:  
+1. Idadi ya mipangilio = 6! = 720  
+
+**Jibu:** 720 mchanganyiko. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Changamoto ya Sarafu
+
+Swali:  
+“Kila mwanafunzi ana sarafu 3 za 100 Tsh, 4 za 200 Tsh, na 5 za 500 Tsh. Jumla ya pesa za mwanafunzi mmoja ni ngapi?”  
+
+{jina} akahesabu:  
+1. 3 × 100 = 300  
+2. 4 × 200 = 800  
+3. 5 × 500 = 2,500  
+4. Jumla = 300 + 800 + 2,500 = 3,600  
+
+**Jibu:** 3,600 Tsh. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mudole wa Mchoro
+
+Mwalimu aliuliza:  
+“Kuna mistari 15 katika gridi ya 5×5. Ikiwa kila gridi ina mistari 10, ni mistari mingapi haiwezi kuonekana mara mbili?”  
+
+{jina} akahesabu:  
+1. Mistari yote = 5 × 5 = 25  
+2. Mistari inayorudiwa = 25 - 10 = 15  
+
+**Jibu:** 15 mistari. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Haraka
+
+Swali:  
+“Kila mwanafunzi anasoma kurasa 120. {jina} anaweza kusoma kurasa 20 kwa saa. Ni muda gani atakayohitaji kumalizia kitabu masaa 4 tu kwa siku?”  
+
+{jina} akahesabu:  
+1. Masaa 4 × 20 kurasa = 80 kurasa  
+2. Kitabu kina kurasa 120, siku 1 atamaliza = 120 ÷ 80 = 1.5 siku  
+3. Siku 1.5 = 1 siku + 12 saa  
+
+**Jibu:** Siku 1 na masaa 12. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mlinganyo wa Changamoto
+
+Mwalimu aliuliza:  
+“Tatua x + 5 = 17. Ni x gani?”  
+
+{jina} akatatua:  
+x = 17 - 5 = 12  
+
+**Jibu:** x = 12. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Darasa
+
+Swali:  
+“Kila darasa lina wanafunzi 20. Kila mwanafunzi anayo vitabu 7. Jumla ya vitabu vya madarasa 9 ni vingapi?”  
+
+{jina} akahesabu:  
+1. 20 × 7 = 140 vitabu kwa darasa  
+2. 140 × 9 = 1,260 vitabu  
+
+**Jibu:** 1,260 vitabu. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mantiki ya Giza
+
+Mwalimu aliuliza:  
+“Kuna vyumba 3 na kila kimoja kina taa 5. Ikiwa kila taa iko na rangi tofauti, ni mchanganyiko gani wa rangi unaweza kuwepo?”  
+
+{jina} akahesabu:  
+1. Mchanganyiko per chumba = 5! = 120  
+2. Vyumba 3 × 120 = 360 mchanganyiko  
+
+**Jibu:** 360 mchanganyiko. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Ngoma
+
+Swali:  
+“Kila mwanafunzi anapiga ngoma 15 kwa wiki. Wanafunzi 12 wanapiga ngoma kwa wiki 6. Jumla ya ngoma ni ngapi?”  
+
+{jina} akahesabu:  
+1. 12 × 15 = 180 ngoma kwa wiki  
+2. 180 × 6 = 1,080 ngoma  
+
+**Jibu:** 1,080 ngoma. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Changamoto ya Mwisho
+
+Mwalimu aliuliza:  
+“Kuna mchemraba wenye upande 8. Ni vipande vingapi vya mstari vinaweza kuunganishwa kwenye pembe zote?”  
+
+{jina} akahesabu:  
+1. Mchemraba = n = 8  
+2. Jumla ya mistari = n(n-1)/2 = 8 × 7 / 2 = 28  
+
+**Jibu:** 28 mistari. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Changamoto Kubwa
+
+Mwalimu alileta swali:  
+“Kila darasa lina wanafunzi 28, na kila mwanafunzi anapika 3 vibao vya mkate kila siku. Kama shule ina madarasa 12, jumla ya vibao vya mkate vinavyopikwa kwa wiki 5 ni vingapi?”  
+
+{jina} akahesabu hatua kwa hatua:  
+1. Vibao kwa mwanafunzi kwa siku = 3  
+2. Vibao kwa darasa kwa siku = 28 × 3 = 84  
+3. Shule yote kwa siku = 12 × 84 = 1,008  
+4. Kwa wiki 5 (5 siku kila wiki) = 1,008 × 5 = 5,040  
+
+**Jibu:** 5,040 vibao vya mkate. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mantiki ya Vipengele
+
+Mwalimu aliuliza:  
+“Kundi la wachezaji 10 linapaswa kupangwa kwenye meza 10 tofauti. Kila mmoja lazima awe na nafasi tofauti. Ni idadi gani ya mipangilio yote inayowezekana?”  
+
+{jina} alitumia mantiki ya kombinatoria:  
+1. Idadi ya mipangilio = 10! = 3,628,800  
+
+**Jibu:** 3,628,800 mchanganyiko. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Pesa
+
+Swali:  
+“Kila mwanafunzi ana 5 sarafu za shilingi 200, 3 sarafu za shilingi 500, na 2 sarafu za shilingi 1,000. Jumla ya pesa za mwanafunzi mmoja ni ngapi?”  
+
+{jina} akahesabu:  
+1. 5 × 200 = 1,000  
+2. 3 × 500 = 1,500  
+3. 2 × 1,000 = 2,000  
+4. Jumla = 1,000 + 1,500 + 2,000 = 4,500  
+
+**Jibu:** 4,500 Tsh. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Changamoto ya Mudole
+
+Mwalimu aliuliza:  
+“Kuna mistari 12 inayounganishwa kwenye gridi ya 4×4. Kila mistari ina kipeo chake. Ikiwa kila gridi ina jumla ya mistari 8, ni mistari mingapi haiwezi kuonekana mara mbili?”  
+
+{jina} akahesabu kwa ustadi:  
+1. Mistari yote kwenye gridi = 4 × 4 = 16  
+2. Mistari inayorudiwa = 16 - 8 = 8  
+3. Mistari haiwezi kuonekana mara mbili = 8  
+
+**Jibu:** 8 mistari. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Hesabu ya Haraka
+
+Swali:  
+“Kila mwanafunzi anasoma kitabu cha kurasa 120. Kama {jina} anaweza kusoma kurasa 15 kwa saa, ni muda gani atakayohitaji kumalizia kitabu siku moja ikiwa atasoma masaa 3 tu?”  
+
+{jina} akahesabu:  
+1. Kurasa kwa saa = 15  
+2. Masaa 3 × 15 kurasa = 45 kurasa  
+3. Kitabu kina kurasa 120, hivyo siku moja atamaliza = 120 ÷ 45 ≈ 2.67 siku  
+4. Kwa dakika = 0.67 × 24 × 60 ≈ 960 dakika  
+
+**Jibu:** Siku 2 na masaa 16 au dakika 960. MWISHO`,
+`Hadithi ya {jina} Mjanja – Fundi wa Hesabu
+
+Darasa la {jina} lilipokea changamoto kubwa kutoka kwa mwalimu:  
+“Kila mwanafunzi ana kitabu 7 na kila kitabu kina kurasa 48. Kama wanafunzi 32 wanakusanya kurasa zao, ni jumla ya kurasa ngapi?”  
+
+{jina} aliketi kimya na kuhesabu hatua kwa hatua:  
+1. Kurasa kwa mwanafunzi = 7 × 48 = 336  
+2. Jumla ya wanafunzi 32 = 32 × 336 = 10,752  
+
+**Jibu:** 10,752 kurasa.  
+Wanafunzi walishangilia jinsi {jina} alivyopanga hesabu kwa utaratibu na usahihi. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Mbinu za Mantiki
+
+Mwalimu alileta swali la mantiki:  
+“Kundi la wachezaji 12 wanapanga safu ya 4. Kila mmoja lazima awe na nafasi tofauti ya kuanza. Ni mchanganyiko gani wote unawezekana?”  
+
+{jina} alitumia mantiki na kombinatoria:  
+1. Idadi ya mchanganyiko = P(12,4) = 12 × 11 × 10 × 9 = 11,880  
+
+**Jibu:** 11,880 mchanganyiko.  
+Wanafunzi walishangilia jinsi alivyotumia mantiki kutatua tatizo gumu. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Changamoto ya Jiografia
+
+Mwalimu aliuliza:  
+“Kama mto unavuka kilomita 3 kwa dakika 15, ni muda gani utakichukua kuvuka kilomita 36?”  
+
+{jina} akafanya hesabu:  
+1. Kiwango = 3 km / 15 min = 0.2 km/min  
+2. Muda = 36 ÷ 0.2 = 180 min = 3 saa  
+
+**Jibu:** 3 saa. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Funguo za Kawaida
+
+Swali:  
+“Kuna funguo 5 tofauti za mlango, ni mpangilio gani wa funguo unafungua mlango ikiwa funguo zinaweza kuingizwa kwa mpangilio wote?”  
+
+{jina} akahesabu:  
+1. Funguo 5 zina mpangilio 5! = 120  
+2. Alijaribu kila mpangilio kwa uangalifu na akapata mpangilio 72 unaofanya mlango ufunguke  
+
+**Jibu:** Funguo zinafungua kwa mpangilio 72 kati ya 120. MWISHO`,
+
+`Hadithi ya {jina} Mjanja – Shughuli ya Sanaa na Hesabu
+
+Mwalimu alileta swali:  
+“Kila mwanafunzi anapiga mstari 6 kwenye karatasi yake na kuna wanafunzi 20. Ni jumla ya mistari mingapi iliyopigwa?”  
+
+{jina} alihesabu hatua kwa hatua:  
+1. Mistari kwa mwanafunzi = 6  
+2. Jumla = 20 × 6 = 120  
+
+**Jibu:** 120 mistari. Wanafunzi walishangilia jinsi {jina} alivyotumia hesabu na akili zake. MWISHO`,
+`Hadithi ya {jina} Mjanja – Fundi wa Maswali Magumu
+
+Shuleni kulikuwa na kijana mjanja anayeitwa {jina}. Kila somo alilojifunza, alikuwa akitumia akili yake kuelewa kila undani, na kila swali gumu lilipomjia, yeye alikuwa na suluhisho la haraka na la busara.
+
+---
+
+**Changamoto ya Kwanza – Hesabu ya Ngoma**
+Walimu walimleta darasani swali gumu:  
+“Ikiwa kuna mcheza ngoma 120, kila mmoja anapiga hatua 7 kwa saa, na kila hatua inachukua sekunde 5, ni muda gani wote watakayohitaji kumaliza mzunguko mmoja wa ngoma?”
+
+{jina} aliketi kimya, akatenganisha hesabu hatua kwa hatua:
+
+1. Kila mcheza ngoma anapiga hatua 7 kwa saa, kila hatua ni sekunde 5.  
+   - Hivyo muda wa hatua 7 = 7 × 5 = 35 sekunde kwa kila mcheza ngoma.
+
+2. Kuna wacheza ngoma 120, kila mmoja anahitaji sekunde 35.  
+   - Jumla ya sekunde = 120 × 35 = 4200 sekunde.
+
+3. Badilisha sekunde kuwa dakika: 4200 ÷ 60 = 70 dakika.
+
+**Jibu:** Wote watamaliza mzunguko wa ngoma kwa dakika 70.  
+Wanafunzi walishangilia jinsi alivyogawanya hesabu kwa makini.
+
+---
+
+**Changamoto ya Pili – Kombinatoria ya Ushirikiano**
+Swali:  
+“Katika darasa la wanafunzi 45, kila mmoja anapaswa kushirikiana na wenzake wawili tofauti kila siku. Ni idadi ngapi ya mchanganyiko tofauti ya siku tatu wanavyoweza kushirikiana?”
+
+{jina} alitumia nadharia ya kombinatoria:
+
+1. Kutengeneza mchanganyiko wa watu 3 kutoka 45:  
+   - Kanuni: C(n, k) = n! / (k! * (n-k)!)  
+   - Hapa: C(45, 3) = 45 × 44 × 43 ÷ (3 × 2 × 1) = 14,190 mchanganyiko kwa siku.
+
+2. Kwa siku tatu tofauti, idadi ya mchanganyiko = 14,190 ÷ 3 = 4,730 kila siku.  
+
+**Jibu:** Kuna mchanganyiko 4,730 tofauti kwa kila siku tatu.  
+Wanafunzi walishangilia jinsi alivyotumia akili halisi kutatua tatizo gumu.
+
+---
+
+**Changamoto ya Tatu – Funguo za Mlango wa Dhahabu**
+Swali:  
+“Umepewa sanduku lenye funguo 4 tofauti. Kila funguo inafungua mlango mmoja wa siri. Funguo zinaweza kuingizwa kwa mpangilio gani ili kufungua mlango wa dhahabu?”
+
+{jina} alitumia mantiki na mpangilio:
+
+1. Funguo 4 zina mpangilio 4! = 24 njia tofauti.  
+2. Alijaribu mpangilio kwa utaratibu:  
+   - Mpangilio 1: A-B-C-D → hakufungua  
+   - Mpangilio 2: A-B-D-C → hakufungua  
+   - …  
+   - Mpangilio 17: B-D-A-C → milango yote ilifunguka  
+
+**Jibu:** Funguo zilifunguka kwa mpangilio wa 17 kati ya 24.  
+Walimu walishangilia kwa hofu jinsi {jina} alivyopata suluhisho kwa kutumia akili na mpangilio wa mantiki.
+
+---
+
+**Mwisho wa Hadithi**  
+
+Kutoka siku hiyo, kila mwanafunzi na mwalimu walimchukulia {jina} kama **Kijana wa Maswali Magumu**, na kila tatizo gumu walipomkabili, walimuita:  
+“Hebu tuone {jina} Mjanja!” 😂  
+MWISHO`,
+`Hadithi ya {jina} Mjanja – Swali na Jibu la Hali ya Juu
+
+Kijana mjanja {jina} alikabiliwa na changamoto ngumu sana, kila moja ikiwa ni swali la kipekee, lisilo rahisi hata kwa mtu wa kawaida:
+
+1️⃣ Changamoto ya kwanza: Hesabu changamano  
+“Kwa mwezi mmoja, kama kuna ng’ombe 23 na kila ng’ombe anatoa lita 3 za maziwa kila siku, lakini siku za Jumapili hazihesabiki, ng’ombe 5 hupona kila wiki, ng’ombe 2 wanapotea kwa sababu ya ugonjwa. Ng’ombe wote watatoa maziwa mangapi kwa siku 30?”  
+{jina} alitumia **logic ya subtraction na multiplication ya masharti**, na kusema:  
+“Ng’ombe watatoa lita 621.”  
+
+2️⃣ Changamoto ya pili: Kesi ya maneno ya siri  
+“Je, ni neno gani linapokuzwa linapungua, lakini linapungua linakua, na lina maneno manne pekee?”  
+{jina} alitabasamu na kusema:  
+“Neno ni ‘pumziko’, kila mwisho wa hali linabadilika kulingana na hali ya mpangilio.”  
+
+3️⃣ Changamoto ya tatu: Riddle ya alama za zamani  
+“Kuna kizioo cha kale kilichohifadhi alama 7, kila alama ina maana ya nambari tofauti. Jumla ya alama 1, 3, 5 ni sawa na alama 2, 4, 6, 7. Nambari ya alama 1 ni 12. Nambari ya alama 7 ni 18. Gunduani nambari ya alama 4.”  
+{jina} alijumlisha na kutumia **algebra ya kimfumo**, akasema:  
+“Nambari ya alama 4 ni 14.”  
+
+4️⃣ Changamoto ya nne: Math puzzle ya probability  
+“Kuna boksi lenye sifa ya ajabu: kuna sarafu 50, 30 za dhahabu na 20 za shaba. Ukiweka mkono bila kuangalia mara mbili, uwezekano wa kupata dhahabu au shaba ni gani?”  
+{jina} alitumia **probability theory**, akakokotoa:  
+“Uwezekano ni 1 (100%) kwa sababu kila sarafu ni ya dhahabu au shaba.”  
+
+5️⃣ Changamoto ya tano: Tatizo la logic ngumu  
+“Kuna familia ya watu watano, kila mmoja ana hobby tofauti, rangi tofauti ya gari, na chakula cha favorite tofauti. Kwa sharti: A anakula chakula cha B, B anakimbilia gari la C, C hapendi hobby ya D… Tumia logic na deduction kubaini hobby ya E.”  
+{jina} alitumia **logic grid method** na kudeduza hatua kwa hatua, akasema:  
+“Hobby ya E ni kupanda milima, bila shaka.”  
+
+Mwisho: Baada ya kushughulika na changamoto hizi za kiwango cha juu, {jina} alijulikana kama **Mjanja wa Hekima ya kweli**, kila aliyejaribu kumkosa alibaki kimya, majaji walipiga makofi kwa shangwe.  
+“Hakika {jina} ndiye anayejua kila kitu, akili ya kiwango cha juu!” 😂  
+MWISHO`, 
+`Hadithi ya Mjanja {jina} – Changamoto za Kihisia na Kihalisi
+
+Kijana mjanja {jina} alipewa changamoto zisizo za kawaida, kila moja ikihitaji akili ya hali ya juu:
+
+1️⃣ Changamoto ya kwanza: Kesi ya ufichaji wa taarifa za siri kutoka kwenye kompyuta iliyofungwa kabisa bila password.  
+   {jina} alitumia **reverse engineering na logic ya binary** pamoja na **pattern recognition** kwenye timestamps za faili zilizofutwa.  
+   Matokeo: Aliweza kufungua data na kugundua ni nani aliyejaribu kuficha habari za wakuu wa kijiji.
+
+2️⃣ Changamoto ya pili: Kuweka ramani sahihi ya mtiririko wa maji wa mito mitatu mchanganyiko wa mvua, chembechembe za udongo na mabadiliko ya hewa.  
+   {jina} alikusanya **data ya sensor, historical data, na statistical modeling**, akaunganisha kwenye **3D simulation**.  
+   Matokeo: Alibaini muda sahihi na sehemu ambapo mafuriko yatatokea, akipunguza hasara ya wakazi.
+
+3️⃣ Changamoto ya tatu: Kesi ya wizi wa teknolojia ya hali ya juu (drones na GPS trackers) bila alama yoyote.  
+   {jina} alitumia **network triangulation, drone signal analysis, na decoy objects**.  
+   Matokeo: Aligundua wizi uliokuwa ukitokea na kuwakamata wizi hao bila kuachia ushahidi wowote.
+
+4️⃣ Changamoto ya nne: Kutatua changamoto ya hesabu ya probability ya kuonekana kwa mnyama wa nadra kwenye msitu kwa mwaka mzima.  
+   {jina} alitengeneza **algorithm ya predictive modeling** akitumia data ya historia ya wanyama, mvua, na mvuto wa chakula.  
+   Matokeo: Alibaini muda na sehemu sahihi ya kuona mnyama huyo, jambo lililosisimua walinzi wa kijiji.
+
+5️⃣ Changamoto ya tano: Tatizo la kimkakati la kutatua mgongano kati ya makundi mawili bila kupoteza amani.  
+   {jina} alitumia **game theory, psychology, na negotiation techniques**.  
+   Matokeo: Alipanga mkutano wa kisiri na kutatua migongano hiyo kwa **ubunifu wa kisayansi**, kila kundi likaridhika.
+
+6️⃣ Changamoto ya sita: Kesi ya encryption ya maelezo muhimu ya kifamilia yaliyokuwa yamehifadhiwa kwenye kioo cha kale.  
+   {jina} alitumia **cryptanalysis na logic ya mnemonics**, na kufuata mfuatano wa alama zilizofutwa.  
+   Matokeo: Aliweza kusoma ujumbe wa siri na kurudisha kumbukumbu ya familia kwa usahihi.
+
+Mwisho: Baada ya changamoto hizi ngumu sana, {jina} alijulikana kama **Mjanja wa Hekima Isiyo na Kiwango**, kila mtu alimtegemea suluhisho la matatizo magumu, changamoto za kweli na zisizo za kawaida.  
+Wakuu wa kijiji walisema: “Hakika {jina} ni mfano wa ujanja wa hali ya juu na akili isiyo na kifani!” 😂  
+MWISHO`,
+
+`Hadithi ya Mshamba {jina} – Shamba la Ajabu na Mbwembwe wa Kijani
+
+Kijijini kulikuwa na mshamba aliyeitwa {jina}. Siku moja, alipanda kwenye shamba lake, akagundua kwamba mimea yake ilikuwa ikikua kwa haraka isiyo ya kawaida.  
+Aliamua kutumia akili yake: akajenga **mfumo wa maji wa mitambo ya kienyeji** unaosambaza maji kwa usahihi kwa kila mmea.  
+
+Lakini changamoto ilikuja: mimea hiyo ilianza kupotea usiku. {jina} hakukimbia, badala yake alitumia **nyasi na alama za urari** kufuatilia wanyama wa porini.  
+Aligundua kuwa mbweha wakiwa na mbwa wa porini walikuwa wakipoteza mimea. Kwa kutumia vinyago na alama, alipanga mtego: aliweka mimea ya uwongo yenye rangi ya asili inayong'aa usiku.  
+Wanyama walikamata mwendo wake kwenye mimea ya uwongo na kuacha mimea halisi.  
+
+Kila siku, mshamba {jina} alijenga mbinu mpya: **kizingiti cha sauti za wanyama** kilichoamsha sauti za kushangaza ili kuwadanganya wanyama wa porini.  
+Kijiji kizima kilishangaa, na walimuita:  
+“{jina}, Mshamba wa Ujanja wa Kijani!” 🤣  
+MWISHO`,
+
+`Hadithi ya Mjanja {jina} – Siri ya Hesabu na Changamoto ya Kijiji
+
+Kijana mjanja {jina} alipokea changamoto kubwa kutoka wakuu wa kijiji:  
+“Tatua hesabu ya thamani ya samaki waliopatikana katika mito mitano ya kijiji letu kwa siku 7, ukizingatia kuwa kila mto unachukua hatua tofauti ya samaki kuongezeka.”
+
+{jina} hakustuka. Aliweka karatasi na kalamu, akaanza kuchambua kila mto kwa alama za kisayansi.  
+Alitumia **ufahamu wa statistiki na mgawanyo wa kawaida**, akilinganisha samaki waliokuwa wakikua kwa mujibu wa chakula, mvua, na mvutano wa maji.  
+
+Baada ya siku mbili, {jina} alirudisha suluhisho:  
+- Mto A: samaki 350  
+- Mto B: samaki 420  
+- Mto C: samaki 380  
+- Mto D: samaki 510  
+- Mto E: samaki 600  
+
+Wakuu walishangaa, waligundua kuwa hesabu hizo zilikuwa sahihi kabisa.  
+Kwa akili na mbinu yake ya hali ya juu, {jina} alikubalika kama **Mjanja wa Hesabu wa Kijiji**, na kila mtoto alitaka kufuata njia zake. 😂  
+MWISHO`,
+
+`Hadithi ya Polisi {jina} Mjanja – Wizi wa Bandari
+
+Polisi {jina} alipokea taarifa kuwa mizigo ya thamani kubwa inapotea kila mara kwenye bandari, bila dalili za kuvunwa milango au kuingiliwa na mtu. Wajumbe wa bandari walidhani ni uchawi au mbinu za ajabu. 
+
+{jina} alikagua kumbukumbu za mizigo na akaona kuwa mizigo yote ilipotea tu kwenye siku ambazo meli kubwa ya mafuta iliingia. Aligundua muundo fulani: kila wizi ulikuja na mpangilio maalum. 
+
+Aliunda mpango wa ujanja mkubwa: akaficha **drone ndogo ya kielektroniki** ndani ya moja ya makontena ya kawaida. Drone hiyo iliporejea hewani, ilionyesha wezi wakitoa mizigo na kuhamishia kwenye meli ndogo usiku, bila mtu yeyote kuona. 
+
+{jina} akatoa ripoti kwa kikosi cha polisi wa majini, na kwa kutumia mashua ndogo iliyofichwa, aliwafuatilia wezi hadi kwenye meli yao.  
+Wakati wakishaanza kuhamisha mizigo ya thamani, {jina} akawashika wakiwa hawajui walichokikosa: drone iliripoti GPS ya kila moja ya mizigo iliyohamishwa.  
+Wezi wote walinaswa na mizigo yote ikarudi salama kwenye bandari.  
+Kwa akili yake ya hali ya juu na mbinu za kielektroniki, {jina} alikamilisha kesi ambayo wengine wangekuwa wanashindwa kuona dalili yoyote.  
+MWISHO`,
+
+`Hadithi ya Polisi {jina} Mjanja – Genge la Wabenki
+
+Polisi {jina} Mjanja alipokea taarifa ya genge la wabenki waliokuwa wakiiba fedha kwa kutumia mbinu za kiteknolojia zisizoonekana mara kwa mara.  
+{jina} alichunguza CCTV za benki na akagundua mbinu yao: walitumia **simu bandia yenye mtaasisi wa RFID** kuhamisha fedha kutoka sanduku la benki hadi mfuko wao kwa siri.
+
+{jina} hakukimbilia kuwashika mara moja. Badala yake, alitengeneza sanduku la benki la kijasusi, likiwa limeingizwa na **GPS tracker ndogo, kamera na sensor za harakati**.  
+Alipoweka sanduku hilo kwenye benki, genge lilidhani ni fedha halisi na walianza kuchukua.  
+
+{jina} alishika kila hatua:  
+1. GPS ilimpatia mahali walipokuwa wakiwa kwenye mji mzima.  
+2. Kamera zilimpatia uso wao na jinsi walivyobeba fedha.  
+3. Sensor za harakati zilionyesha ni lini walipokuwa wakiingia na kutoka.
+
+Usiku ulipofika, {jina} aliwafuata moja kwa moja hadi mafichoni. Alipowashika, walishangaa kuona kuwa kila kitu walichofanya kilirekodiwa kwa kamera na GPS.  
+Genge lote liliwajibishwa na fedha zote zilipatikana salama.  
+
+Hadithi hii ilionyesha jinsi akili, mbinu za kisasa, na kijasusi zinaweza kulimaliza genge lenye teknolojia ya hali ya juu.  
+{jina} alitambuliwa kama polisi mwenye ujanja usio wa kawaida, na heshima yake ikaenea kwenye miji yote jirani.  
+MWISHO`,
+
+`Polisi {jina} alipokea taarifa kuwa nyumba za kifahari zinaibiwa bila kuvunjwa milango wala madirisha.  
+Wakazi walidhani ni uchawi. Lakini {jina} akachunguza akagundua kuwa wezi walikuwa wanatumia "master key" iliyotengenezwa kitaalamu.  
+Ili kuwakamata, {jina} aliweka kamera ndogo ndani ya balbu zilizokuwa zimeharibika na kurudisha balbu mpya zilizokuwa na kamera za siri.  
+Usiku ulipofika, kamera zilionyesha wezi wakitumia funguo maalum kuingia.  
+{jina} hakukimbilia mara moja, bali alisubiri waingie na kuweka vitu vya wizi kwenye gari lao.  
+Alipowasha siren, alikata njia zote kwa kutumia gari la polisi lililojificha mita 200 mbele.  
+Wezi walinaswa na ushahidi wote ukiwa mkononi.`,
+
+`Polisi {jina} alipokea kesi ya genge lililokuwa linavunja ATM kwa kutumia vifaa vya kisasa vya kielektroniki.  
+Badala ya kulinda ATM moja moja, {jina} alitengeneza ATM ya mtego yenye kamera zilizofichwa ndani na "GPS ink pack" — kifaa kidogo kilichokuwa kimefungwa kwenye noti bandia.  
+Usiku, wezi walipovunja ATM hiyo, walidhani wamefanikiwa kupata mamilioni.  
+Lakini baada ya dakika tano, mifuko yao ililipuka kwa wino wa bluu na GPS kuonyesha walipo.  
+{jina} aliwafuata moja kwa moja hadi mafichoni na kuwanasa wote wakiwa na mikono ya bluu, ushahidi hai wa wizi wao.`,
+
+`Polisi {jina} alipokea malalamiko ya kuwa mizigo ya bandari inakosekana kila mara bila dalili yoyote.  
+Wengine walidhani wafanyakazi wa bandari ni wachawi. Lakini {jina} alikagua kumbukumbu za mizigo akaona kuwa mizigo ilipotea tu kwenye siku ambazo meli kubwa ya mizigo ya mafuta iliingia.  
+Akatengeneza mpango wa siri — akaficha drone ndogo kwenye moja ya makontena.  
+Drone hiyo iliporejea hewani, ilionyesha wazi jinsi genge lilivyokuwa linatoa mzigo na kuhamishia kwenye meli nyingine ndogo usiku.  
+{jina} alitoa taarifa kwa askari wa majini na usiku uliofuata wakawakamata wezi wote baharini, mizigo ikapatikana salama.`,
+
+`Polisi {jina} alipata kesi ya ujambazi mkubwa ambapo majambazi walitoroka kwa kutumia pikipiki nne zenye namba bandia.  
+Badala ya kuwafuata kwa haraka, {jina} alitumia akili tofauti.  
+Aliangalia CCTV akagundua kuwa pikipiki zote nne zilipita kwenye daraja moja lililo na kamera ya trafiki.  
+Akaagiza timu yake ichunguze picha hizo na kugundua pikipiki moja ilikuwa na tairi la nyuma lililokuwa na mpasuko mdogo.  
+Kwa kutumia mfumo wa barabara, akaweka mtego kwenye karakana zinazotengeneza tairi aina hiyo pekee.  
+Siku mbili baadaye, jambazi mmoja alienda kubadilisha tairi. Aliposhikwa, alitoa siri zote za genge lote.  
+{jina} akafanikiwa kulimaliza genge lote kwa kutumia dalili moja tu ndogo sana.`,
+
+`Polisi {jina} Mjanja alipokea taarifa kuwa benki imevunjwa usiku na kamera zimeonyesha gari jeusi likikimbia.  
+Badala ya kukimbiza gari bila mpangilio, {jina} alichunguza CCTV za mitaa ya jirani na kugundua mwizi alikuwa amezima taa moja ya nyuma ili kutoonekana vizuri.  
+Akaandika taarifa kwa vituo vyote vya polisi: "Angalieni gari jeusi lenye taa moja ya nyuma imezima."  
+Dakika 30 baadaye, gari lilionekana barabarani, na {jina} akaweka mtego wa barabara bila mwizi kujua.  
+Mwizi alijiona salama, lakini alipofika kwenye kizuizi, akakamatwa papo hapo bila risasi moja kupigwa.`,
+
+`Polisi {jina} Mjanja alipata kesi ya duka kubwa lililovunjwa, lakini hakukuwa na alama za vidole wala CCTV wazi.  
+Watu walidhani kesi imekwisha, lakini {jina} aliona funika dogo la viatu lililo na saruji barabarani.  
+Akatambua kuwa viatu hivyo vilikuwa na mchanganyiko wa saruji mpya na vumbi la rangi nyekundu.  
+Alifuatilia maeneo ya ujenzi pekee yaliyokuwa na rangi hiyo siku hiyo.  
+Alipofika site moja, alikuta mfuko mkubwa wa bidhaa zilizopotea, na wezi bado wako kazini wakidhani hakuna mtu angewafikia.  
+{jina} akawakamata wote akitumia ushahidi wa kisayansi tu.`,
+
+`Polisi {jina} Mjanja alipokea simu kuwa genge la wezi linapanga uporaji wa duka la dhahabu.  
+Badala ya kuwasubiri washambulie, {jina} alituma askari wake waliovaa kama wateja na wafanyakazi wa duka.  
+Kila mtu alidhani ni biashara ya kawaida, kumbe walikuwa ni mtego wa kitaalamu.  
+Wezi walipoingia na kutoa bastola, walishangaa kuona kila upande kuna polisi waliokuwa tayari.  
+Kwa sekunde chache tu, genge lote lilidhibitiwa bila risasi moja kupigwa.  
+Wananchi walimshangilia {jina} kwa mpango wake wa kijanja na busara.`,
+    `Hadithi ya ${jina} Mshamba – Polisi na Pikipiki
+Kulikuwa na kesi ya pikipiki kuibiwa kijijini. Polisi ${jina} Mshamba alitumwa kuchunguza.
+Badala ya kufuatilia nyayo au kuuliza mashahidi, ${jina} akaamua kuuliza kijiji kizima swali moja tu:
+“Jamani, nani anapenda kupanda pikipiki sana?”
+Kijiji kizima kikaanza kucheka. Mwizi alikuwa tayari ameondoka mbali,
+lakini ${jina} bado alikuwa anaandika majina ya wapanda bodaboda wote kijijini. 😂
+MWISHO`,
+
+`Hadithi ya ${jina} Mshamba – Polisi na Miti ya Ushahidi
+Siku moja ${jina} Mshamba alipewa jukumu la kukagua eneo la uhalifu.
+Alipoona miti mingi imezunguka duka lililovunjwa, akasema:
+“Lazima hawa majambazi wamepanda juu ya miti! Ngoja nipande na mimi.”
+Akapanda hadi juu ya mti, akashuka bila ushahidi wowote.
+Mwisho wake akasema kwa ujasiri:
+“Nimehakikisha majambazi walipitia hewani!” 😂
+MWISHO`,
+
+`Hadithi ya ${jina} Mjanja – Polisi na Alama za Viatu
+Kijijini palikuwa na kesi kubwa ya uvunjaji. Wezi walikuwa wanavunja maduka usiku.
+Polisi ${jina} Mjanja aliitwa kushughulikia kesi.
+Alichunguza eneo la tukio kwa makini, akaona alama ndogo za viatu kwenye udongo.
+Akatumia kipimo cha urefu wa nyayo na akalinganisha na viatu vya watu kijijini.
+Hatimaye, alipata mtuhumiwa sahihi bila kelele wala mbio.
+Mwizi alikamatwa, na kijiji kikamuita ${jina} “Fundi wa Uchunguzi.” 👮‍♂️
+MWISHO`,
+
+`Hadithi ya ${jina} Mjanja – Polisi na Mtego wa Simu
+Wakati pikipiki zikiibwa mfululizo mjini, polisi ${jina} Mjanja alitumia mbinu mpya.
+Aliweka simu ya GPS ndani ya begi dogo la dereva wa bodaboda.
+Mwizi alipoiiba, simu ikaanza kutuma location kila dakika.
+${jina} akafuata ramani hadi mafichoni na kuwakamata wezi wote bila purukushani.
+Watu wakasema: “Huyu ${jina} ana akili ya kisayansi kabisa!” 🔎
+MWISHO`,
+    
+
+`Hadithi ya {jina} na Friji  
+
+Siku moja {jina} alipelekwa mjini kwa jirani yake.  
+Alipoingia sebuleni, akaona boksi jeupe lenye mlango.  
+Akasema:  
+"Jamani! Hili ni kaburi la chuma, mbona lipo ndani ya nyumba?"  
+
+Wakamjibu:  
+"Hapana, hii ni friji."  
+
+{jina} akafungua mlango, akashangaa barafu imemiminika.  
+Akaanza kupiga mayowe:  
+"Jamani! Nimefungua mlango wa mlima Kilimanjaro, theluji imenifuata hadi ndani!" 😂  
+
+Akaona kuku waliogandishwa. Akasema:  
+"Wee! Huyu jamaa amewaua kuku wake kwa barafu badala ya kisu, huu ni ushetani kabisa!"  
+
+---
+
+Visa Vingine  
+
+Baada ya muda, aliona taa ndogo ya microwave ikiwaka.  
+Akasema:  
+"Wee! Hii ni redio ya kuoka ugali? Mbona inang’aa na mlango umefungwa?"  
+
+Alipowekwa chakula ndani, kikaanza kuzunguka.  
+{jina} akapiga kelele:  
+"Jamani! Wanazungusha chakula kama ng’ombe wa kusaga nafaka, mbona wanakiadhibu hivi?" 🤣  
+
+---
+
+Mwisho wa Hadithi  
+
+Hatimaye, aliona blender inazungusha juice.  
+Akasema:  
+"Hii siyo mashine ya juisi, hii ni mashine ya kuua embe kwa mateso!"  
+
+Kijiji kizima kikamcheka, wakamuita:  
+“{jina}, mshamba wa friji na juisi za mateso!”  
+MWISHO`,
+
+
+`Hadithi ya {jina} na Hospitali ya Kisasa  
+
+{jina} aliugua, ndugu zake wakampeleka hospitali ya mjini.  
+Alipoingia tu akashangaa vitanda vinatembea pekee yake.  
+Akasema:  
+"Hii siyo hospitali, hii ni mazishi ya wagonjwa wakiwa hai!"  
+
+Wauguzi wakamwambia:  
+"Hapana, hivi ni vitanda vya wagonjwa."  
+
+---
+
+Matukio ya Ajabu  
+
+Daktari akamwambia:  
+"Tupime moyo wako."  
+Akamwekea stethoscope kifuani.  
+{jina} akasema:  
+"Wee! Unanilaza na bomba la kusikiliza siri zangu? Mimi siwezi kuamini hii."  
+
+Baadaye wakampeleka kwenye X-ray.  
+Akaona picha ya mifupa yake.  
+Akapiga kelele:  
+"Jamani! Wameona mifupa yangu, sasa watayauza kama mifupa ya ng’ombe!" 😂  
+
+---
+
+Mwisho wa Hadithi  
+
+Wakampatia dawa kwenye dripu.  
+Alipoona maji yanaingia mkononi akalia:  
+"Jamani! Wananipa maji ya kuoga ndani ya mishipa!"  
+
+Watu wote hospitalini wakacheka, wakamuita:  
+“{jina}, mshamba wa X-ray na maji ya mishipa!”  
+MWISHO`,
+
+
+`Hadithi ya {jina} na Choo cha Kisasa  
+
+Siku moja {jina} aliingia kwenye hoteli kubwa mjini.  
+Alipotaka kujisaidia, akaingia chooni.  
+Akakuta choo cha kuflash.  
+Akasema:  
+"Hii ni sufuria ya kuosha miguu? Mbona iko katikati ya chumba?"  
+
+---
+
+Matukio ya Vichekesho  
+
+Alipojisaidia, akabonyeza kitufe, maji yakazunguka na kusafisha.  
+Akapiga kelele:  
+"Jamani! Kijiji kimekuja kuninyang’anya choo, kinafuata hadi kinazunguka!" 😂  
+
+Baadaye akaona hand dryer (mashine ya kukausha mikono).  
+Akaweka mkono ndani, upepo mkali ukampiga.  
+Akarudi nyuma kwa hofu:  
+"Wee! Kuna pepo wananiibia mikono!"  
+
+---
+
+Mwisho wa Hadithi  
+
+Akatoka nje na kuwaambia watu:  
+"Jamani! Choo chenu ni mchawi, kimenimezea siri zangu na kimenipiga upepo wa jini."  
+
+Watu wakamcheka, wakamuita:  
+“{jina}, mshamba wa choo kinachoosha na upepo wa mikono!”  
+MWISHO`,
+
+`Hadithi ya {jina} na ATM  
+
+Siku moja {jina} alienda mjini mara ya kwanza kabisa.  
+Akaona watu wamesimama mstari mrefu mbele ya ukuta wenye mashimo na taa.  
+Akauliza:  
+"Wee ndugu, mnangoja nini?"  
+
+Wakamwambia:  
+"Hii ni ATM, inatoa hela."  
+
+{jina} akashangaa:  
+"Kumbe ukuta nao una hela zake? Basi ngoja na mimi nijaribu."  
+
+Alipofika mbele, akatoa kadi ya bisi akadhani ndio kadi ya benki, akaingiza.  
+Mashine ikakataa, akapiga kelele:  
+"Jamani! Ukuta umenimeza tiketi ya basi, sasa nitakuwaje?"  
+
+Akaamua kuandika namba yake ya simu pale kwenye mashine, akidhani itamtumia hela kwa M-Pesa.  
+Ghafla ikatoka risiti tupu, {jina} akasema:  
+"Ee Mungu wangu, nimepewa noti isiyo na maandishi, hii hela feki mtupu!" 😂  
+
+---`,
+
+`Hadithi ya {jina} na Selfie ya Kwanza  
+
+{jina} alinunua simu mpya mjini.  
+Wakamwambia:  
+"Hii simu inaweza kupiga picha ya uso wako mwenyewe."  
+
+Akasema:  
+"Kwani mimi sijijui? Mbona nimeshajiona kwa kioo mara nyingi?"  
+
+Basi akajaribu selfie. Akaona uso wake kwa screen, akashtuka:  
+"Aaah! Kumbe na mimi nina ndugu pacha nilokuwa simjui? Amejificha kwenye simu hii!"  
+
+Akaanza kumwambia picha yake:  
+"Pole kaka yangu, nimekukumbuka sana. Utoke lini huko ndani?" 😂  
+
+---`,
+
+`Hadithi ya {jina} na WiFi  
+
+{jina} alienda mjengoni kwa first time, akaona watu wanatumia simu zao bila vocha.  
+Akauliza:  
+"Mnafanyaje bila kununua vocha?"  
+
+Wakamjibu:  
+"Tunatumia WiFi."  
+
+{jina} akasema:  
+"Eeeh! Hilo jina ni la mnyama au mchawi? Maana nasikia kama fisi."  
+
+Akaja akashikilia ceiling akatafuta waya.  
+"Kwanini simwoni huyu WiFi? Mbona mnatumia bila kumuita hapa?"  
+
+Kisha akaandika meseji kwa simu yake:  
+"WiFi, njoo hapa unipe data. Nitakulipa kuku watatu!" 😂  
+
+MWISHO`,
+
+`Hadithi ya {jina} na Simu ya Touchscreen  
+
+Siku moja {jina} alipata simu ya kisasa yenye screen kubwa.  
+Alipojaribu kuandika meseji, hakukuwa na vitufe vya kubonyeza.  
+Akashangaa:  
+"Eeeh! Hii simu imenizidi ujanja, imekula vitufe vyake vyote!"  
+
+Akaanza kugonga simu kwa nguvu kwa kijiti ili vitufe vitoke.  
+Screen ikapasuka kidogo.  
+{jina} akasema:  
+"Aaah! Sasa nimefanikiwa, nimeshaivunja ili vitufe virejee!" 😂😂  
+
+---`,
+
+`Hadithi ya {jina} na Cinema 3D  
+
+{jina} alipelekwa kwenye sinema ya 3D kwa mara ya kwanza.  
+Akapewa miwani maalum, akaikataa akasema:  
+"Hii miwani sihitaji, macho yangu bado mapya."  
+
+Alipoanza kutazama filamu, ghafla paka mkubwa akaruka kwenye screen.  
+{jina} akapiga kelele:  
+"Jamani! Paka anatoka kwenye ukuta, kimbieni!"  
+
+Akasimama akajaribu kufukuza paka kwa kijiti, watu ukumbini wakacheka hadi wakaanguka. 😂  
+
+---`,
+
+`Hadithi ya {jina} na Lifti ya Hospitali  
+
+Siku moja {jina} alipelekwa hospitali kubwa mjini.  
+Akaona watu wakiingia kwenye lifti (elevator) na milango inafunga.  
+Baada ya muda ikafunguka, wakatoka watu wengine tofauti.  
+
+{jina} akapiga kelele:  
+"Eeeh! Hii sanduku linafanya watu kubadilika! Mzee akiingia, kijana anatoka!"  
+
+Akaamua naye aingie.  
+Baada ya sekunde chache mlango ulipofunguka na mama mmoja akatoka, {jina} akasema:  
+"Jamani! Mimi nilitaka kutoka, imegeuza jinsia yangu kabisa!" 🤣🤣  
+
+MWISHO
+`,
+
+`Hadithi ya {jina} na ATM  
+
+{jina} alipelekwa mjini mara ya kwanza akaona mashine ya ATM.  
+Akasimama pembeni akawaona watu wanaweka kadi na hela zinatoka.  
+
+{jina} akajisemea:  
+"Eeeh! Hii ni mti wa pesa wa kisasa!"  
+
+Akasubiri foleni ikipungua, akaenda na tiketi ya basi akaiingiza kwenye ATM.  
+Baada ya sekunde chache ikatoka tena ile tiketi.  
+
+{jina} akapiga kelele:  
+"Jamani! Mashine imenitupia hela kwa tiketi, sasa nataka niweke kuku wangu atoe magunia ya mchele!" 😂😂  
+
+---`,
+
+`Hadithi ya {jina} na Remote ya TV  
+
+Siku moja {jina} alipewa remote kwa mara ya kwanza.  
+Akaishika akibofya kila button, TV ikiwaka na kuzima.  
+
+Baada ya dakika chache, akaja jirani kumuona.  
+{jina} akasema:  
+"Hii kijiti ni ya kichawi sana! Inabadilisha picha kwenye boksi lile!"  
+
+Kisha akamfuata paka wake, akamuelekezea remote na kubofya.  
+Alipoona paka hajatoka machozi akasema kwa hasira:  
+"Aaah basi hii uchawi wake ni wa kiwango kidogo, haina nguvu kwa wanyama!" 🤣🤣  
+
+---`,
+
+`Hadithi ya {jina} na Supermarket  
+
+{jina} aliingia supermarket kwa mara ya kwanza.  
+Akaona mlango unafunguka wenyewe alipokaribia.  
+Akashtuka akakimbia nyuma akasema:  
+"Jamani! Mlango unanijua mimi!"  
+
+Alipoingia ndani akaona trolley (toroli la kusukuma).  
+Akaanza kulisukuma huku akisema:  
+"Naenda kujaribu gari la bure mjini!"  
+
+Mwisho wake akaweka bidhaa kibao ndani, akaja kasiri cashier alipomwambia lazima alipe.  
+{jina} akasema kwa sauti:  
+"Aaah jamani, mimi nilidhani hii ni ofa ya kujaribu gari na chakula bure!" 😂😂  
+
+MWISHO
+`,
+
+`Hadithi ya {jina} na Lift ya Jengo  
+
+{jina} alipelekwa mjini kwa mara ya kwanza akaingia jengo refu sana.  
+Akaona mlango wa chuma unafunguka na kufunga — kumbe ni lift.  
+
+Akauliza: "Hii ni duka la ndizi?"  
+Wakamwambia: "Hapana, hii ni lift, inaenda juu na chini."  
+
+Baada ya muda mzee mmoja mwenye ndevu mrefu aliingia lift.  
+Mlango ukafunga, baada ya dakika chache, ukafunguka akatoka dada mdogo mzuri sana.  
+
+{jina} akapiga kelele:  
+"Eeeh! Jamani! Hii mashine inabadilisha watu!  
+Ngoja nami niingize bibi yangu humu atoke akiwa college girl!" 😂😂  
+
+
+`,
+
+`Hadithi ya {jina} na Bafuni ya Hoteli  
+
+{jina} aliwahi kulala hoteli mara yake ya kwanza.  
+Alipoingia bafuni akakuta kuna shower.  
+Akaanza kubonyeza kioo cha ku-control maji.  
+
+Badala ya maji kutoka, akasikia heater ikiwasha moto.  
+Akajitupa chini akapiga mayowe:  
+"Jamani! Bafu linataka kunichoma moto!"  
+
+Kesho yake akajaribu tena, maji yakaanza kutoka juu.  
+Akashtuka akakimbia nje uchi akisema:  
+"Kuna mtu ananitemea mate juu! Msaada jamani!" 🤣🤣  
+
+
+`,
+
+`Hadithi ya {jina} na Safari ya Ndege  
+
+Siku moja {jina} alipanda ndege kwa mara ya kwanza.  
+Alipokaa kiti chake, akaona kuna mkanda wa seatbelt.  
+Akaanza kuufunga shingoni kama tai.  
+
+Airhostess akamwambia:  
+"Sir, that is for your waist."  
+{jina} akajibu:  
+"Eeh! Mimi najua, lakini nikiweka shingoni nikidondoka angalau nitanyongwa haraka nisiteseke!" 😂  
+
+Baada ya ndege kuanza kuruka, akasikia mlango umefungwa vizuri.  
+Akauliza kwa sauti:  
+"Kama ikibidi kushuka mapema, dereva atasimamisha wapi barabarani?" 🤣🤣  
+
+MWISHO
+`,
+`Hadithi ya {jina} Mshamba na Gari la Automatic
+
+Siku moja {jina} alipanda gari la automatic mara ya kwanza.  
+Dereva alipowasha, gari likaanza kusogea bila kubonyeza kanyagio.  
+
+{jina} akapiga mayowe:  
+"Jamani! Gari linaendesha lenyewe, limeota roho ya binadamu!"  
+
+Alipoona dereva akihamisha lever ndogo tu, gari likakimbia zaidi.  
+Akasema: "Hii lever ni kama fimbo ya mchawi, unaipeleka mbele gari linakimbia, ukiirudisha nyuma gari linakimbia kurudi!" 😂  
+
+Mwisho wa Hadithi
+
+Baada ya kurudi kijijini, aliwaambia wenzake:  
+"Mjini wameshafuga farasi wa chuma, unawasukuma kwa fimbo ndogo wanakimbia wenyewe."  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Microphone
+
+Katika harusi ya mjini, {jina} alipewa kipaza sauti.  
+Alipozungumza kidogo, sauti yake ikatoka kwenye spika kubwa.  
+
+Akasema: "Jamani! Koo yangu imehama, sasa inakaa ndani ya boksi kubwa!"  
+
+Akaweka kipaza karibu na mdomo zaidi, spika ikatoa sauti kubwa zaidi.  
+Akashtuka akasema: "Hii kitu inanidanganya, kila neno nalosema inarudia kwa kelele!"  
+
+Mwisho wa Hadithi
+
+Kijijini akawaambia:  
+"Mjini wana kioo cha maneno, ukiongea wanakupa jibu mara mbili. Ndio maana watu wa mjini hupiga kelele kila wakati." 😂  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Microwave
+
+{jina} alipelekwa jikoni kwa rafiki yake mjini.  
+Alipewa chakula kilichohifadhiwa, wakaweka kwenye microwave.  
+
+Sekunde chache tu, chakula kikatoka kikiwa cha moto.  
+{jina} akasema: "Hii lazima ni tanuri la majini, linaivisha chakula bila kuni!"  
+
+Akaweka kikombe cha maji ndani, akaviona vinachemka ghafla.  
+Akashangaa: "Yaani maji ya baridi yanachemka bila jiko? Hii nyumba itaniunguza!" 😂  
+
+Mwisho wa Hadithi
+
+Kurudi kijijini aliwaambia:  
+"Mjini hawana makaa, wana sanduku linaloivisha ugali kwa dakika moja. Ni kama kuchomea viazi kwa radi ya hewani."  
+MWISHO`,
+`Hadithi ya {jina} Mshamba na ATM
+
+Mara ya kwanza {jina} alipelekwa mjini akakutana na mashine kubwa yenye kitufe na kioo.  
+Marafiki wakamwambia: "Hii mashine inatoa hela yenyewe."  
+
+{jina} akashangaa: "Kwa hiyo hii ni kama mfuko wa mboga, ukiweka mkono inakuletea chakula?"  
+Wakamshawishi ajaribu. Akaona mtu akiweka kadi kisha hela ikatoka.  
+
+{jina} akasema: "Ahaa! Hii lazima ni ng’ombe wa chuma, unapoitikisa inatoa maziwa ya karatasi!" 😂  
+
+Mwisho wa Hadithi
+
+Baada ya kurudi kijijini, aliwaambia watu:  
+"Wameshafuga masanduku ya chuma mjini, yanaweza kuzaa hela kila saa. Siku nikileta moja kijijini, wote mtakula vizuri."  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na WiFi
+
+Siku moja {jina} alifika mjini akaambiwa: "Hapa kuna WiFi, tumia bure."  
+Akauliza: "Hiyo ni chakula kipya au dawa ya malaria?"  
+
+Wakamwambia: "Hapana, ni mtandao wa hewani."  
+Akasema: "Kumbe wameshaweka nyavu angani hadi inabeba maneno ya watu!"  
+
+Alichukua simu akaanza kuzungusha juu akidhani atakamata kama samaki.  
+Baada ya kuona video kwenye YouTube akashangaa:  
+"Sasa hii WiFi inaleta watu wanaocheza muziki kutoka hewani. Hii lazima ni upepo wenye miziki ndani yake." 😂  
+
+Mwisho wa Hadithi
+
+Kurudi kijijini akawaambia:  
+"Mjini kuna upepo wa kisasa, ukivuta kidogo tu unakuletea habari na ngoma."  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Escalator
+
+{jina} alifika kwenye duka kubwa la mjini, akaona ngazi zinasogea zenyewe.  
+Akasema: "Hii sasa ni uchawi wa mchana kweupe, ngazi zinapanda na kushuka zenyewe bila mtu!"  
+
+Akaamua kupanda. Alipokanyaga tu zikaanza kumsogeza, akakaza mikono kwa hofu.  
+Akasema: "Wameweka mto wa chuma, unaonibeba bila kuniuliza ruhusa!"  
+
+Watu wakacheka, yeye akashuka akasema:  
+"Ngazi za kijijini ndizo za kweli, hizi za mjini zinataka kuninyonya miguu." 😂  
+
+Mwisho wa Hadithi
+
+Baada ya kurudi kijijini aliwaambia:  
+"Mjini hawana watumishi wa kupandisha mizigo, ngazi zenyewe zinatembea kama punda wa chuma."  
+MWISHO`,
+`Hadithi ya {jina} Mshamba na Redio ya Kijijini
+
+{jina} alikuwa hajawahi kuona redio ya umeme. Siku moja rafiki yake alimpa redio ndogo akamwambia:
+"Hii ikiwashwa, inaimba na kuzungumza peke yake."
+
+{jina} akaipeleka kwa majirani na kuanza kuzungusha volume. Sauti ikaanza kutoka:
+"Taarifa ya habari...!"
+
+Akashtuka na kusema:
+"Wee! Kuna mtu amejificha ndani ya boksi hii!"
+
+Akaanza kuzungusha redio, ikakamata stesheni ya muziki. Wimbo ukaanza kusikika.  
+{jina} akapiga kelele:
+"Hii boksi imekula wasanii! Imevamewa na taarabu!"
+
+Alipojaribu kuifungua, akachomoa waya akasema:
+"Aha! Sasa nimewatoa mateka waliokuwa wakilia ndani ya boksi!" 😂
+
+Mwisho wa Hadithi
+
+Baada ya muda kijiji kizima kilimcheka, wakaanza kumuita “Bwana Habari”.  
+Kila mara akisogea, watoto wanapiga kelele:  
+"Habari za saa mojaaa!" 😂  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Picha ya Pasipoti
+
+Siku moja {jina} alipelekwa mjini kupiga picha ya pasipoti. Aliingia studio, mpiga picha akasema:
+"Kaa sawa, usicheke, angalia kamera."
+
+Akaangalia kamera macho yakawa makubwa kama ng’ombe. Baada ya sekunde chache taa ikamulika *flash!*  
+{jina} akakurupuka:
+"Jamani, mmenipiga radi usiku wa mchana! Mbona sioni kitu?"
+
+Mpiga picha akamwambia:
+"Hiyo ni taa ya kamera, tumekuchukua picha."
+{jina} akashika kichwa:
+"Ee Mungu wangu! Hata roho yangu wamechukua ndani ya boksi hili!"
+
+Alipopewa picha mkononi akasema:
+"Wee! Mmeiweka roho yangu karatasi? Sasa nikikufa naona mtanipeleka kabatini badala ya kaburini." 😂
+
+Mwisho wa Hadithi
+
+Kutoka siku hiyo kijijini walimuita “Bwana Pasipoti”.  
+Kila akiingia dukani, watu wanamwambia:  
+"Huyu ndiye mtu anayeishi kwenye karatasi!" 😂  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Choo cha Umeme
+
+{jina} aliwahi kupelekwa mjini na marafiki zake. Walimpeleka kwenye hoteli yenye choo cha kisasa – kinachojisafisha chenyewe.  
+Akiingia, akakuta kiti kinang’aa na taa zikimulika.  
+Akasema:  
+"Wee! Hii ni meza ya kula au ni kiti cha kujisaidia?"
+
+Alipoketi, sensa ikawashwa maji *shuuuu!*  
+{jina} akaruka na bukta chini akapiga kelele:
+"Jamani! Hii meza inanipiga shambulio la maji! Nani ananioga huku bafuni?"
+
+Akakimbia koridoni akitaka msaada. Watu wote hotelini wakamcheka.  
+{jina} akasema kwa aibu:
+"Sasa najua mjini kila mtu ana choo mchawi, chenye macho na masikio. Mimi narudi kijijini kwangu na shimo langu la zamani." 😂
+
+Mwisho wa Hadithi
+
+Kwa aibu ile, {jina} hakurudi mjini tena kwa miaka miwili.  
+Na mpaka leo akiona maji yanapiga kelele anasema:  
+"Hii labda ni choo kimenifuata huku kijijini." 😂  
+MWISHO`,
+
+`Hadithi ya {jina} Mshamba na Simu ya Smart
+
+Kuna mshikaji mmoja kijijini anaitwa {jina}. Huyu bwana alikuwa hajawahi kuingia mjini hata siku moja. 
+Siku moja mjomba wake kutoka Dar es Salaam akaja kijijini na kumpa zawadi ya simu ya kisasa — smartphone.
+
+Kwa mshamba {jina}, hii ilikuwa kama kumpa paka leso akafute jasho. Aliichukua ile simu akaanza kuitazama kama kioo. 
+Aliingia ndani akaiweka kitandani, akaiangalia huku akijiuliza:
+"Wee... hii ni redio au ni runinga? Mbona haina antenna?"
+
+Kesho yake akaamua kujaribu kuipiga simu. Akabonyeza kila sehemu, ghafla ikatoa sauti ya Google Assistant:
+"Hello, how can I help you?"
+Yule mshamba akashtuka akatupa simu kitandani akakimbia nje kupiga kelele:
+"Watu wangu! Jamani simu inanitukana kizungu!" 😂
+
+Watu wakakusanyika, mmoja akamwambia:
+"Hii ni simu ya kisasa, unaweza kuongea nayo."
+{jina} akasema:
+"Acha uongo, binadamu tunaongea na binadamu, sasa hii chuma itanijibuje?"
+
+Akamshauri aulize kitu. Basi {jina} akainua simu kwa heshima na kusema:
+"Wee simu, nitafutie kuku wangu aliyepotea jana."
+Simu ikamjibu: “Sorry, I didn’t understand.”
+Yule mshamba akapiga kelele:
+"Nimeshajua! Simu hii ni mchawi, inajua mambo ya watu lakini haitaki kunisaidia!" 🤣
+
+
+Mambo yalipoharibika
+
+Siku nyingine alienda dukani na simu mkononi. Aliwasha camera kwa bahati mbaya, akaona uso wake kwenye screen. 
+Akakimbia akipiga kelele:
+"Jamani! Nimefungwa ndani ya simu! Hebu nisaidieni nitoke!"
+
+Mama mmoja dukani akamuuliza:
+"Mbona unaonekana humo humo?"
+{jina} akajibu:
+"Ndio maana nakwambia hii simu mchawi, imenimeza mimi mzima mzima, sasa sijui nitajitoa vipi." 😂
+
+Mwisho wa Hadithi
+
+Baada ya majanga haya, kijiji kizima kilianza kumuita “Bwana Simu”. 
+Watu walimcheka kila alipopita. Hatimaye, {jina} alikasirika na kusema:
+"Hii simu itaniharibia heshima yangu kijijini, bora niiuze nikae na nokia yangu ya tochi."
+
+Aliiuza kwa shilingi elfu kumi tu, kumbe ilikuwa iPhone mpya kabisa. 
+Sasa kila mtu mjini anampiga kelele:
+"{jina}, shujaa pekee aliyeuza ndege kwa bei ya kuku!" 🐓📱😂
+MWISHO`,
+
+      `Polisi {jina} Mjanja alipokea taarifa kuwa genge la wezi linabeba vifaa vya wizi kwa gari.
+      Aliweka tracker ndogo ya GPS ndani ya sanduku feki, kisha akalirusha kwenye gari lao bila wao kujua.
+      Usiku ulipofika, alifuatilia mwendo wa GPS hadi mafichoni.
+      Akaweka mtego kimya kimya na kuwakamata wezi wote wakiwa hawajui wamefuatiliwa.`,
+
+      `{jina} Mjanja aligundua kuwa genge la wezi lilikuwa linatumia simu maalum kujibizana.
+      Badala ya kuwapigia, alituma signal feki (interference) na simu zao zikashindwa kuwasiliana.
+      Walipojaribu kukutana bila mpangilio, walijichanganya wenyewe.
+      {jina} aliwasubiri pale walipoangukia mtego na kuwakamata wote bila risasi moja kupigwa.`
+    ];
+
+function andikaHadithi(type) {
+      const jina = document.getElementById("jina").value || "Shujaa";
+      let hadithi = "";
+
+      if(type === "mjanja"){
+        hadithi = mjanjaHadithi[Math.floor(Math.random() * mjanjaHadithi.length)].replace(/{jina}/g, jina);
+      } else if(type === "fupi"){
+        hadithi = fupiHadithi[Math.floor(Math.random() * fupiHadithi.length)].replace(/{jina}/g, jina);
+      }
+
+      // Typing effect
+      hadithiBox.textContent = "";
+      let index = 0;
+      function typeWriter() {
+        if(index < hadithi.length){
+          hadithiBox.textContent += hadithi.charAt(index);
+          index++;
+          setTimeout(typeWriter, 25); // 25ms kati ya herufi
+        }
+      }
+      typeWriter();
+    }
+  </script>
+</body>
+</html>
